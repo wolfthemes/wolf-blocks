@@ -1,8 +1,55 @@
 import { useBlockProps } from '@wordpress/block-editor';
 
-export default function save() {
+export default function save({ attributes }) {
+	const {
+		content,
+		avatarUrl,
+		name,
+		authorTitle,
+		link,
+		imagePosition,
+		textAlign,
+	} = attributes;
+
 	const blockProps = useBlockProps.save({
-		className: 'wolf-blocks-testimonial-card',
+		className: `wolf-blocks-testimonial-card wolf-blocks-testimonial-card--img-${imagePosition} has-text-align-${textAlign}`,
 	});
-	return <div {...blockProps}></div>;
+
+	return (
+		<figure {...blockProps}>
+			<blockquote className='wolf-blocks-testimonial-card__quote'>
+				<p>{content}</p>
+			</blockquote>
+			<figcaption className='wolf-blocks-testimonial-card__author'>
+				{avatarUrl && (
+					<img
+						className='wolf-blocks-testimonial-card__avatar'
+						src={avatarUrl}
+						alt={name}
+						width={48}
+						height={48}
+					/>
+				)}
+				<div className='wolf-blocks-testimonial-card__meta'>
+					{link ? (
+						<a
+							href={link}
+							className='wolf-blocks-testimonial-card__name'
+						>
+							{name}
+						</a>
+					) : (
+						<span className='wolf-blocks-testimonial-card__name'>
+							{name}
+						</span>
+					)}
+					{authorTitle && (
+						<span className='wolf-blocks-testimonial-card__title'>
+							{authorTitle}
+						</span>
+					)}
+				</div>
+			</figcaption>
+		</figure>
+	);
 }

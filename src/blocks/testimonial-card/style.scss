@@ -1,8 +1,72 @@
-// Testimonial Card — scaffold
-// Consumes theme CSS vars only; no hardcoded values.
-
 .wolf-blocks-testimonial-card {
+	border: 1px solid var(--wolf-border-color);
 	border-radius: var(--wolf-radius-lg);
-	box-shadow: var(--wolf-shadow-card);
-	padding: 2rem;
+	padding: var(--wp--preset--spacing--50);
+	background: var(--wp--preset--color--base);
+
+	&__quote p {
+		font-size: var(--wp--preset--font-size--md);
+		line-height: 1.7;
+		color: var(--wp--preset--color--contrast);
+		margin: 0 0 var(--wp--preset--spacing--40);
+		font-style: italic;
+	}
+
+	&__author {
+		display: flex;
+		align-items: center;
+		gap: 0.75rem;
+	}
+
+	&__avatar {
+		width: 48px;
+		height: 48px;
+		border-radius: var(--wolf-radius-pill);
+		object-fit: cover;
+		flex-shrink: 0;
+	}
+
+	&__meta {
+		display: flex;
+		flex-direction: column;
+		gap: 2px;
+	}
+
+	&__name {
+		font-weight: 700;
+		font-size: var(--wp--preset--font-size--sm);
+		color: var(--wp--preset--color--contrast);
+		text-decoration: none;
+	}
+
+	&__title {
+		font-size: var(--wp--preset--font-size--xs);
+		opacity: 0.55;
+		color: var(--wp--preset--color--contrast);
+	}
+
+	// Image position: top
+	&--img-top {
+		.wolf-blocks-testimonial-card__author {
+			flex-direction: column;
+			align-items: flex-start;
+		}
+	}
+
+	// Text alignment variants
+	&.has-text-align-center {
+		text-align: center;
+
+		.wolf-blocks-testimonial-card__author {
+			justify-content: center;
+		}
+	}
+
+	&.has-text-align-right {
+		text-align: right;
+
+		.wolf-blocks-testimonial-card__author {
+			justify-content: flex-end;
+		}
+	}
 }

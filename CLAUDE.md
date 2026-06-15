@@ -23,20 +23,25 @@ Full contract: see BOUNDARIES.md and ../seijaku-fse/BOUNDARIES.md
 | Block | Status | Notes |
 |---|---|---|
 | wolf-blocks/marquee | ✅ implemented | scrolling text band |
-| wolf-blocks/stats-counter | 🔲 scaffold | animated number counter |
-| wolf-blocks/testimonial-card | 🔲 scaffold | quote + author |
-| wolf-blocks/pricing-table | 🔲 scaffold | pricing tiers |
+| wolf-blocks/stats-counter | ✅ implemented | animated counter, IntersectionObserver view.js |
+| wolf-blocks/testimonial-card | ✅ implemented | quote + avatar + author |
+| wolf-blocks/pricing-table | ✅ implemented | pricing tiers, services list, offer price |
 
 ## Adding a new block
 1. Create src/blocks/{name}/ with block.json, index.js, save.js, style.scss
-2. Add JS entry and SCSS entry to webpack.config.js
-3. Add slug to Block_Loader::register_blocks() array in Functions/Core/Block_Loader.php
-4. Update this inventory table
+2. Add only a JS entry to webpack.config.js (no separate SCSS entry)
+3. Import `./style.scss` inside index.js — wp-scripts splitChunks extracts it to `style-index.css`
+4. If a view.js is needed (frontend interactivity), add a separate entry: `'blocks/{name}/view'`
+5. Add slug to Block_Loader::register_blocks() array in Functions/Core/Block_Loader.php
+6. Update this inventory table
 
 ## block.json style convention
-- `"style": "file:./style.css"` — compiled from style.scss via webpack SCSS entry
-- `"editorStyle": "file:./index.css"` — extracted from editor.scss imported in index.js
+- `"style": "file:./style-index.css"` — compiled from style.scss imported in index.js (wp-scripts splitChunks)
+- `"editorStyle": "file:./index.css"` — compiled from editor.scss imported in index.js
 - `"editorScript": "file:./index.js"` — compiled JS bundle
+- `"viewScript": "file:./view.js"` — frontend-only script (separate webpack entry required)
+
+Never use bare SCSS webpack entries — they produce non-standard `style-style.css` filenames.
 
 ## Commands
 ```

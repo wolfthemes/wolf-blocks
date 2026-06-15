@@ -10,21 +10,39 @@
 	"editorScript": "file:./index.js",
 	"style": "file:./style-index.css",
 	"attributes": {
-		"quote": {
+		"content": {
 			"type": "string",
-			"default": "An exceptional theme that transformed our website."
+			"default": ""
 		},
-		"author": {
+		"avatarUrl": {
 			"type": "string",
-			"default": "Jane Doe"
+			"default": ""
 		},
-		"role": {
-			"type": "string",
-			"default": "CEO, Acme Inc."
-		},
-		"rating": {
+		"avatarId": {
 			"type": "number",
-			"default": 5
+			"default": 0
+		},
+		"name": {
+			"type": "string",
+			"default": ""
+		},
+		"authorTitle": {
+			"type": "string",
+			"default": ""
+		},
+		"link": {
+			"type": "string",
+			"default": ""
+		},
+		"imagePosition": {
+			"type": "string",
+			"default": "left",
+			"enum": ["left", "top"]
+		},
+		"textAlign": {
+			"type": "string",
+			"default": "left",
+			"enum": ["left", "center", "right"]
 		}
 	},
 	"supports": {

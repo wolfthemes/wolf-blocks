@@ -8,15 +8,20 @@
 	"description": "Animated number counter for displaying key statistics.",
 	"textdomain": "wolf-blocks",
 	"editorScript": "file:./index.js",
+	"viewScript": "file:./view.js",
 	"style": "file:./style-index.css",
 	"attributes": {
-		"value": {
+		"title": {
+			"type": "string",
+			"default": "Sales"
+		},
+		"startNumber": {
+			"type": "number",
+			"default": 0
+		},
+		"endNumber": {
 			"type": "number",
 			"default": 100
-		},
-		"label": {
-			"type": "string",
-			"default": "Projects Completed"
 		},
 		"prefix": {
 			"type": "string",
@@ -24,7 +29,20 @@
 		},
 		"suffix": {
 			"type": "string",
-			"default": "+"
+			"default": ""
+		},
+		"animationDuration": {
+			"type": "number",
+			"default": 2000
+		},
+		"thousandsSeparator": {
+			"type": "boolean",
+			"default": true
+		},
+		"separatorStyle": {
+			"type": "string",
+			"default": "default",
+			"enum": ["default", "dots", "space", "underscore", "apostrophe"]
 		}
 	},
 	"supports": {

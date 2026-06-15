@@ -10,25 +10,70 @@
 	"editorScript": "file:./index.js",
 	"style": "file:./style-index.css",
 	"attributes": {
-		"plan": {
+		"tagline": {
 			"type": "string",
-			"default": "Pro"
+			"default": ""
+		},
+		"title": {
+			"type": "string",
+			"default": ""
+		},
+		"htmlTag": {
+			"type": "string",
+			"default": "h3",
+			"enum": ["h2", "h3", "h4", "h5", "h6"]
 		},
 		"price": {
-			"type": "string",
-			"default": "49"
+			"type": "number",
+			"default": 0
 		},
 		"currency": {
 			"type": "string",
 			"default": "$"
 		},
-		"period": {
+		"currencyPosition": {
 			"type": "string",
-			"default": "/mo"
+			"default": "before",
+			"enum": ["before", "after"]
+		},
+		"offerPrice": {
+			"type": "number",
+			"default": 0
+		},
+		"pricePeriod": {
+			"type": "string",
+			"default": ""
+		},
+		"buttonText": {
+			"type": "string",
+			"default": "Get Started"
+		},
+		"buttonUrl": {
+			"type": "string",
+			"default": ""
+		},
+		"secondaryButtonText": {
+			"type": "string",
+			"default": ""
+		},
+		"secondaryButtonUrl": {
+			"type": "string",
+			"default": ""
 		},
 		"featured": {
 			"type": "boolean",
 			"default": false
+		},
+		"featuredText": {
+			"type": "string",
+			"default": "Popular"
+		},
+		"services": {
+			"type": "array",
+			"default": [],
+			"items": {
+				"type": "string"
+			}
 		}
 	},
 	"supports": {

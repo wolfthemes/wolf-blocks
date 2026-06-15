@@ -7,6 +7,7 @@ module.exports = {
 	entry: {
 		'blocks/marquee/index': './src/blocks/marquee/index.js',
 		'blocks/stats-counter/index': './src/blocks/stats-counter/index.js',
+		'blocks/stats-counter/view': './src/blocks/stats-counter/view.js',
 		'blocks/testimonial-card/index':
 			'./src/blocks/testimonial-card/index.js',
 		'blocks/pricing-table/index': './src/blocks/pricing-table/index.js',
