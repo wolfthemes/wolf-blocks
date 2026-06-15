@@ -1,0 +1,37 @@
+{
+	"$schema": "https://schemas.wp.org/trunk/block.json",
+	"apiVersion": 3,
+	"name": "wolf-blocks/pricing-table",
+	"version": "1.0.0",
+	"title": "Pricing Table",
+	"category": "wolf-blocks",
+	"description": "Pricing tiers with features list and call-to-action.",
+	"textdomain": "wolf-blocks",
+	"editorScript": "file:./index.js",
+	"style": "file:./style-style.css",
+	"attributes": {
+		"plan": {
+			"type": "string",
+			"default": "Pro"
+		},
+		"price": {
+			"type": "string",
+			"default": "49"
+		},
+		"currency": {
+			"type": "string",
+			"default": "$"
+		},
+		"period": {
+			"type": "string",
+			"default": "/mo"
+		},
+		"featured": {
+			"type": "boolean",
+			"default": false
+		}
+	},
+	"supports": {
+		"html": false
+	}
+}

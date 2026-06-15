@@ -1,0 +1,19 @@
+# Build output
+build/
+
+# Dependencies
+node_modules/
+vendor/
+
+# IDE / OS
+.vscode/
+.idea/
+Thumbs.db
+Desktop.ini
+.DS_Store
+
+# Misc
+*.zip
+dev/
+pack/
+bak/

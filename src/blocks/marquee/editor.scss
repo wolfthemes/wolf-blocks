@@ -1,0 +1,8 @@
+// Marquee — editor-only styles
+
+.wolf-blocks-marquee {
+	// Pause animation in the editor so users can see and edit the text clearly.
+	.wolf-blocks-marquee__track {
+		animation-play-state: paused;
+	}
+}

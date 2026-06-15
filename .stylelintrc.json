@@ -1,0 +1,33 @@
+{
+	"extends": ["@wordpress/stylelint-config"],
+	"rules": {
+		"font-family-no-missing-generic-family-keyword": null,
+		"no-descending-specificity": null,
+		"max-line-length": null,
+		"selector-class-pattern": null,
+		"unit-no-unknown": [true, { "ignoreUnits": ["svh"] }],
+		"declaration-colon-space-after": null,
+		"at-rule-no-unknown": [
+			true,
+			{
+				"ignoreAtRules": [
+					"use",
+					"forward",
+					"include",
+					"mixin",
+					"each",
+					"if",
+					"else",
+					"extend",
+					"for",
+					"while",
+					"function",
+					"return",
+					"content",
+					"error",
+					"warn"
+				]
+			}
+		]
+	}
+}

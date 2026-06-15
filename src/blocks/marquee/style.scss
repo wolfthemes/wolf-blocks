@@ -1,0 +1,41 @@
+// Marquee — consumes theme CSS vars only
+// Never hardcode colors or font values here
+
+.wolf-blocks-marquee {
+	overflow: hidden;
+	white-space: nowrap;
+	border-top: 1px solid var(--wolf-border-color);
+	border-bottom: 1px solid var(--wolf-border-color);
+	padding: 1rem 0;
+
+	&__track {
+		display: inline-flex;
+		gap: 2rem;
+		animation: wolf-marquee var(--wolf-marquee-speed, 30s) linear infinite;
+	}
+
+	&__item {
+		font-size: var(--wp--preset--font-size--sm);
+		font-family: var(--wp--preset--font-family--heading);
+		font-weight: 600;
+		letter-spacing: 0.05em;
+		text-transform: uppercase;
+		color: var(--wp--preset--color--contrast);
+		opacity: 0.6;
+	}
+}
+
+@keyframes wolf-marquee {
+	from {
+		transform: translateX(0);
+	}
+	to {
+		transform: translateX(-50%);
+	}
+}
+
+@media (prefers-reduced-motion: reduce) {
+	.wolf-blocks-marquee__track {
+		animation: none;
+	}
+}

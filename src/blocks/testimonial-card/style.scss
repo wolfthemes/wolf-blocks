@@ -1,0 +1,8 @@
+// Testimonial Card — scaffold
+// Consumes theme CSS vars only; no hardcoded values.
+
+.wolf-blocks-testimonial-card {
+	border-radius: var(--wolf-radius-lg);
+	box-shadow: var(--wolf-shadow-card);
+	padding: 2rem;
+}

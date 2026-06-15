@@ -1,0 +1,33 @@
+{
+	"$schema": "https://schemas.wp.org/trunk/block.json",
+	"apiVersion": 3,
+	"name": "wolf-blocks/stats-counter",
+	"version": "1.0.0",
+	"title": "Stats Counter",
+	"category": "wolf-blocks",
+	"description": "Animated number counter for displaying key statistics.",
+	"textdomain": "wolf-blocks",
+	"editorScript": "file:./index.js",
+	"style": "file:./style-style.css",
+	"attributes": {
+		"value": {
+			"type": "number",
+			"default": 100
+		},
+		"label": {
+			"type": "string",
+			"default": "Projects Completed"
+		},
+		"prefix": {
+			"type": "string",
+			"default": ""
+		},
+		"suffix": {
+			"type": "string",
+			"default": "+"
+		}
+	},
+	"supports": {
+		"html": false
+	}
+}

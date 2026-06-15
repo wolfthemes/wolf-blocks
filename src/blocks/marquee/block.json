@@ -1,0 +1,34 @@
+{
+	"$schema": "https://schemas.wp.org/trunk/block.json",
+	"apiVersion": 3,
+	"name": "wolf-blocks/marquee",
+	"version": "1.0.0",
+	"title": "Marquee",
+	"category": "wolf-blocks",
+	"description": "Continuously scrolling text band. Speed and content editable.",
+	"textdomain": "wolf-blocks",
+	"editorScript": "file:./index.js",
+	"style": "file:./style-style.css",
+	"editorStyle": "file:./index.css",
+	"attributes": {
+		"text": {
+			"type": "string",
+			"default": "WolfThemes · Premium WordPress Themes · "
+		},
+		"speed": {
+			"type": "number",
+			"default": 30
+		},
+		"repeat": {
+			"type": "number",
+			"default": 4
+		}
+	},
+	"supports": {
+		"html": false,
+		"color": {
+			"background": false,
+			"text": false
+		}
+	}
+}

@@ -1,0 +1,33 @@
+{
+	"$schema": "https://schemas.wp.org/trunk/block.json",
+	"apiVersion": 3,
+	"name": "wolf-blocks/testimonial-card",
+	"version": "1.0.0",
+	"title": "Testimonial Card",
+	"category": "wolf-blocks",
+	"description": "Quote and author card for customer testimonials.",
+	"textdomain": "wolf-blocks",
+	"editorScript": "file:./index.js",
+	"style": "file:./style-style.css",
+	"attributes": {
+		"quote": {
+			"type": "string",
+			"default": "An exceptional theme that transformed our website."
+		},
+		"author": {
+			"type": "string",
+			"default": "Jane Doe"
+		},
+		"role": {
+			"type": "string",
+			"default": "CEO, Acme Inc."
+		},
+		"rating": {
+			"type": "number",
+			"default": 5
+		}
+	},
+	"supports": {
+		"html": false
+	}
+}

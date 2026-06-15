@@ -1,0 +1,13 @@
+// Pricing Table — scaffold
+// Consumes theme CSS vars only; no hardcoded values.
+
+.wolf-blocks-pricing-table {
+	border-radius: var(--wolf-radius-lg);
+	border: 1px solid var(--wolf-border-color);
+	padding: 2rem;
+	transition: box-shadow var(--wolf-transition-speed) var(--wolf-transition-ease);
+
+	&:hover {
+		box-shadow: var(--wolf-shadow-card);
+	}
+}
