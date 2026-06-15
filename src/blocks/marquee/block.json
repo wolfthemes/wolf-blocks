@@ -8,7 +8,7 @@
 	"description": "Continuously scrolling text band. Speed and content editable.",
 	"textdomain": "wolf-blocks",
 	"editorScript": "file:./index.js",
-	"style": "file:./style-style.css",
+	"style": "file:./style-index.css",
 	"editorStyle": "file:./index.css",
 	"attributes": {
 		"text": {

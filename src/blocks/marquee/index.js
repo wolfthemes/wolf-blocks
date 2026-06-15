@@ -4,6 +4,7 @@ import { useBlockProps, InspectorControls } from '@wordpress/block-editor';
 import { PanelBody, TextControl, RangeControl } from '@wordpress/components';
 import metadata from './block.json';
 import save from './save';
+import './style.scss';
 import './editor.scss';
 
 function Edit({ attributes, setAttributes }) {

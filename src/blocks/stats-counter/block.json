@@ -8,7 +8,7 @@
 	"description": "Animated number counter for displaying key statistics.",
 	"textdomain": "wolf-blocks",
 	"editorScript": "file:./index.js",
-	"style": "file:./style-style.css",
+	"style": "file:./style-index.css",
 	"attributes": {
 		"value": {
 			"type": "number",

@@ -10,13 +10,6 @@ module.exports = {
 		'blocks/testimonial-card/index':
 			'./src/blocks/testimonial-card/index.js',
 		'blocks/pricing-table/index': './src/blocks/pricing-table/index.js',
-		// Frontend stylesheets — compiled separately so block.json can reference
-		// them via "style": "file:./style.css" independent of the editor script.
-		'blocks/marquee/style': './src/blocks/marquee/style.scss',
-		'blocks/stats-counter/style': './src/blocks/stats-counter/style.scss',
-		'blocks/testimonial-card/style':
-			'./src/blocks/testimonial-card/style.scss',
-		'blocks/pricing-table/style': './src/blocks/pricing-table/style.scss',
 	},
 	output: {
 		...defaultConfig.output,
