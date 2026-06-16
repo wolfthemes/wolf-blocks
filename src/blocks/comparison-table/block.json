@@ -1,0 +1,45 @@
+{
+	"$schema": "https://schemas.wp.org/trunk/block.json",
+	"apiVersion": 3,
+	"name": "wolf-blocks/comparison-table",
+	"version": "1.0.0",
+	"title": "Comparison Table",
+	"category": "wolf-blocks",
+	"description": "Side-by-side feature comparison between WolfThemes and a competitor.",
+	"textdomain": "wolf-blocks",
+	"editorScript": "file:./index.js",
+	"style": "file:./style-index.css",
+	"attributes": {
+		"title": {
+			"type": "string",
+			"default": "Why buy direct?"
+		},
+		"usLabel": {
+			"type": "string",
+			"default": "WolfThemes"
+		},
+		"competitorLabel": {
+			"type": "string",
+			"default": "ThemeForest"
+		},
+		"rows": {
+			"type": "array",
+			"default": [
+				{ "feature": "Direct developer support", "us": true, "competitor": false },
+				{ "feature": "Lifetime updates", "us": true, "competitor": false },
+				{ "feature": "Marketplace commission", "us": false, "competitor": true }
+			],
+			"items": {
+				"type": "object",
+				"properties": {
+					"feature": { "type": "string" },
+					"us": { "type": "boolean" },
+					"competitor": { "type": "boolean" }
+				}
+			}
+		}
+	},
+	"supports": {
+		"html": false
+	}
+}

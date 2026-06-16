@@ -1,0 +1,42 @@
+.wolf-blocks-feature-grid {
+	display: grid;
+	gap: var(--wp--preset--spacing--6);
+
+	&--cols-2 { grid-template-columns: repeat(2, 1fr); }
+	&--cols-3 { grid-template-columns: repeat(3, 1fr); }
+	&--cols-4 { grid-template-columns: repeat(4, 1fr); }
+
+	@media (max-width: 768px) {
+		/* stylelint-disable-next-line declaration-no-important */
+		grid-template-columns: 1fr !important;
+	}
+}
+
+.wolf-blocks-feature-grid-item {
+	display: flex;
+	flex-direction: column;
+	gap: var(--wp--preset--spacing--2);
+
+	&__icon {
+		width: 2rem;
+		height: 2rem;
+		color: var(--wp--preset--color--primary);
+
+		svg {
+			width: 100%;
+			height: 100%;
+		}
+	}
+
+	&__title {
+		font-size: var(--wp--preset--font-size--md);
+		font-weight: 700;
+		margin: 0;
+	}
+
+	&__description {
+		font-size: var(--wp--preset--font-size--sm);
+		opacity: 0.7;
+		margin: 0;
+	}
+}

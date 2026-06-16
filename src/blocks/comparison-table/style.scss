@@ -1,0 +1,49 @@
+.wolf-blocks-comparison-table {
+	&__title {
+		text-align: center;
+		margin-bottom: var(--wp--preset--spacing--5);
+	}
+
+	&__table {
+		width: 100%;
+		border-collapse: collapse;
+		font-size: var(--wp--preset--font-size--sm);
+
+		th,
+		td {
+			padding: var(--wp--preset--spacing--3);
+			border-bottom: var(--wolf-border-width) solid var(--wolf-border-color);
+		}
+
+		th {
+			text-align: center;
+			font-size: var(--wp--preset--font-size--xs);
+			text-transform: uppercase;
+			letter-spacing: 0.06em;
+
+			&:first-child {
+				text-align: left;
+			}
+		}
+	}
+
+	&__feature {
+		font-weight: 500;
+	}
+
+	&__cell {
+		text-align: center;
+		font-size: var(--wp--preset--font-size--md);
+
+		&--competitor {
+			opacity: 0.5;
+		}
+	}
+
+	tr.is-winning-row {
+		.wolf-blocks-comparison-table__cell--us {
+			color: var(--wp--preset--color--primary);
+			font-weight: 700;
+		}
+	}
+}

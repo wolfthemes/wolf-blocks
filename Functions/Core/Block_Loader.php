@@ -23,6 +23,9 @@ class Block_Loader {
 			'stats-counter',
 			'testimonial-card',
 			'pricing-table',
+			'comparison-table',
+			'feature-grid',
+			'feature-grid-item',
 		);
 
 		foreach ( $blocks as $block ) {
@@ -31,5 +34,20 @@ class Block_Loader {
 				register_block_type( $path );
 			}
 		}
+
+		$this->register_countdown();
+	}
+
+	private function register_countdown(): void {
+		$path = WOLF_BLOCKS_DIR . '/build/blocks/countdown';
+		if ( ! file_exists( $path . '/block.json' ) ) {
+			return;
+		}
+		register_block_type(
+			$path,
+			array(
+				'render_callback' => array( new Countdown_Block(), 'render' ),
+			)
+		);
 	}
 }

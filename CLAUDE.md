@@ -26,6 +26,10 @@ Full contract: see BOUNDARIES.md and ../seijaku-fse/BOUNDARIES.md
 | wolf-blocks/stats-counter | ✅ implemented | animated counter, IntersectionObserver view.js |
 | wolf-blocks/testimonial-card | ✅ implemented | quote + avatar + author |
 | wolf-blocks/pricing-table | ✅ implemented | pricing tiers, services list, offer price |
+| wolf-blocks/countdown | ✅ implemented | dynamic block (PHP render_callback), manual date or wolf-store offer, view.js ticker |
+| wolf-blocks/comparison-table | ✅ implemented | us vs competitor feature table, repeatable rows with reorder |
+| wolf-blocks/feature-grid | ✅ implemented | InnerBlocks grid, 2–4 columns, providesContext for columns |
+| wolf-blocks/feature-grid-item | ✅ implemented | child of feature-grid, @wordpress/icons picker, RichText title+desc |
 
 ## Adding a new block
 1. Create src/blocks/{name}/ with block.json, index.js, save.js, style.scss

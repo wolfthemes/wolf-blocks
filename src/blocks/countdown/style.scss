@@ -1,0 +1,38 @@
+.wolf-blocks-countdown {
+	display: inline-flex;
+	align-items: center;
+	gap: var(--wp--preset--spacing--3);
+	font-size: var(--wp--preset--font-size--sm);
+	padding: var(--wp--preset--spacing--2) var(--wp--preset--spacing--3);
+	border: var(--wolf-border-width) solid var(--wolf-border-color);
+	border-radius: var(--wolf-radius-md);
+
+	&__label {
+		text-transform: uppercase;
+		letter-spacing: 0.06em;
+		font-weight: 600;
+		opacity: 0.7;
+	}
+
+	&__units {
+		display: flex;
+		gap: var(--wp--preset--spacing--2);
+	}
+
+	&__unit {
+		display: flex;
+		align-items: baseline;
+		gap: 2px;
+
+		strong {
+			font-size: var(--wp--preset--font-size--base);
+			font-weight: 700;
+			font-variant-numeric: tabular-nums;
+		}
+
+		small {
+			font-size: var(--wp--preset--font-size--xs);
+			opacity: 0.6;
+		}
+	}
+}

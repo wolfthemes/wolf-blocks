@@ -1,0 +1,43 @@
+{
+	"$schema": "https://schemas.wp.org/trunk/block.json",
+	"apiVersion": 3,
+	"name": "wolf-blocks/countdown",
+	"version": "1.0.0",
+	"title": "Countdown",
+	"category": "wolf-blocks",
+	"description": "Countdown timer to a target date, with optional Wolf Store offer integration.",
+	"textdomain": "wolf-blocks",
+	"editorScript": "file:./index.js",
+	"viewScript": "file:./view.js",
+	"style": "file:./style-index.css",
+	"attributes": {
+		"source": {
+			"type": "string",
+			"default": "manual",
+			"enum": ["manual", "wolf-store-offer"]
+		},
+		"targetDate": {
+			"type": "string",
+			"default": ""
+		},
+		"label": {
+			"type": "string",
+			"default": "Offer ends in"
+		},
+		"expiredText": {
+			"type": "string",
+			"default": "Offer has ended"
+		},
+		"showDays": {
+			"type": "boolean",
+			"default": true
+		},
+		"showSeconds": {
+			"type": "boolean",
+			"default": true
+		}
+	},
+	"supports": {
+		"html": false
+	}
+}

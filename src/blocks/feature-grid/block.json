@@ -1,0 +1,24 @@
+{
+	"$schema": "https://schemas.wp.org/trunk/block.json",
+	"apiVersion": 3,
+	"name": "wolf-blocks/feature-grid",
+	"version": "1.0.0",
+	"title": "Feature Grid",
+	"category": "wolf-blocks",
+	"description": "A responsive grid of feature items, each with an icon, title, and description.",
+	"textdomain": "wolf-blocks",
+	"editorScript": "file:./index.js",
+	"style": "file:./style-index.css",
+	"attributes": {
+		"columns": {
+			"type": "number",
+			"default": 4
+		}
+	},
+	"providesContext": {
+		"wolf-blocks/feature-grid-columns": "columns"
+	},
+	"supports": {
+		"html": false
+	}
+}
