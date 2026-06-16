@@ -2,7 +2,11 @@
 	text-align: center;
 
 	&__number {
-		font-size: var(--wp--preset--font-size--3xl);
+		display: flex;
+		align-items: baseline;
+		justify-content: center;
+		gap: 0.1em;
+		font-size: var(--wp--preset--font-size--3-xl);
 		font-family: var(--wp--preset--font-family--heading);
 		font-weight: 800;
 		line-height: 1;

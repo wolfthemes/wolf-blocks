@@ -6,7 +6,7 @@ import {
 	TextControl,
 	ToggleControl,
 	SelectControl,
-	NumberControl,
+	RangeControl,
 } from '@wordpress/components';
 import metadata from './block.json';
 import save from './save';
@@ -73,22 +73,23 @@ function Edit({ attributes, setAttributes }) {
 					/>
 				</PanelBody>
 				<PanelBody title={__('Number', 'wolf-blocks')}>
-					<NumberControl
+					<TextControl
 						label={__('Start Number', 'wolf-blocks')}
+						type='number'
 						value={startNumber}
-						min={0}
 						onChange={val =>
 							setAttributes({ startNumber: Number(val) })
 						}
 					/>
-					<NumberControl
+					<TextControl
 						label={__('End Number', 'wolf-blocks')}
+						type='number'
 						value={endNumber}
 						onChange={val =>
 							setAttributes({ endNumber: Number(val) })
 						}
 					/>
-					<NumberControl
+					<RangeControl
 						label={__('Animation Duration (ms)', 'wolf-blocks')}
 						value={animationDuration}
 						min={500}
