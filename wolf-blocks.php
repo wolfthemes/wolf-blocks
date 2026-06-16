@@ -16,9 +16,7 @@
 
 defined( 'ABSPATH' ) || exit;
 
-if ( file_exists( __DIR__ . '/vendor/autoload.php' ) ) {
-	require_once __DIR__ . '/vendor/autoload.php';
-}
+require_once __DIR__ . '/autoload.php';
 
 register_activation_hook( __FILE__, function () {
 	flush_rewrite_rules(); // phpcs:ignore WordPressVIPMinimum.Functions.RestrictedFunctions.flush_rewrite_rules_flush_rewrite_rules
