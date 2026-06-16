@@ -4,6 +4,7 @@ import { useBlockProps, InspectorControls } from '@wordpress/block-editor';
 import {
 	PanelBody,
 	TextControl,
+	TextareaControl,
 	SelectControl,
 	RangeControl,
 } from '@wordpress/components';
@@ -18,17 +19,19 @@ function Edit({ attributes, setAttributes }) {
 	const blockProps = useBlockProps({ className: 'wolf-blocks-marquee' });
 
 	const arrow = direction === 'left' ? '←' : '→';
-	const preview =
-		direction === 'left' ? `${arrow}  ${text}` : `${text}  ${arrow}`;
 
 	return (
 		<>
 			<InspectorControls>
 				<PanelBody title={__('Content', 'wolf-blocks')}>
-					<TextControl
-						label={__('Text', 'wolf-blocks')}
+					<TextareaControl
+						label={__('Text (HTML allowed)', 'wolf-blocks')}
 						value={text}
 						onChange={val => setAttributes({ text: val })}
+						help={__(
+							'Use <span class="…">…</span> for styled segments.',
+							'wolf-blocks'
+						)}
 					/>
 					<TextControl
 						label={__('Link URL', 'wolf-blocks')}
@@ -68,7 +71,15 @@ function Edit({ attributes, setAttributes }) {
 			</InspectorControls>
 			<div {...blockProps}>
 				<div className='wolf-blocks-marquee__track'>
-					<span className='wolf-blocks-marquee__item'>{preview}</span>
+					<span
+						className='wolf-blocks-marquee__item'
+						dangerouslySetInnerHTML={{
+							__html:
+								direction === 'left'
+									? `${arrow}  ${text}`
+									: `${text}  ${arrow}`,
+						}}
+					/>
 				</div>
 			</div>
 		</>

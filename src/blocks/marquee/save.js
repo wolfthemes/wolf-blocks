@@ -9,9 +9,11 @@ export default function save({ attributes }) {
 	});
 
 	const items = Array.from({ length: 6 }, (_, i) => (
-		<span key={i} className='wolf-blocks-marquee__item'>
-			{text}
-		</span>
+		<span
+			key={i}
+			className='wolf-blocks-marquee__item'
+			dangerouslySetInnerHTML={{ __html: text }}
+		/>
 	));
 
 	const track = (
