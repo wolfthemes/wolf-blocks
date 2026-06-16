@@ -11,7 +11,6 @@ import {
 	ToggleControl,
 	SelectControl,
 	Button,
-	NumberControl,
 } from '@wordpress/components';
 import metadata from './block.json';
 import save from './save';
@@ -69,8 +68,9 @@ function Edit({ attributes, setAttributes }) {
 					/>
 				</PanelBody>
 				<PanelBody title={__('Pricing', 'wolf-blocks')}>
-					<NumberControl
+					<TextControl
 						label={__('Price', 'wolf-blocks')}
+						type='number'
 						value={price}
 						min={0}
 						onChange={val => setAttributes({ price: Number(val) })}
@@ -97,8 +97,9 @@ function Edit({ attributes, setAttributes }) {
 							setAttributes({ currencyPosition: val })
 						}
 					/>
-					<NumberControl
+					<TextControl
 						label={__('Offer Price (0 = disabled)', 'wolf-blocks')}
+						type='number'
 						value={offerPrice}
 						min={0}
 						onChange={val =>
