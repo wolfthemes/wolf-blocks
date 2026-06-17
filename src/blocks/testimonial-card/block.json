@@ -43,6 +43,10 @@
 			"type": "string",
 			"default": "left",
 			"enum": ["left", "center", "right"]
+		},
+		"rating": {
+			"type": "number",
+			"default": 5
 		}
 	},
 	"supports": {

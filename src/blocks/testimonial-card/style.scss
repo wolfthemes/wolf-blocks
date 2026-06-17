@@ -4,6 +4,35 @@
 	padding: var(--wp--preset--spacing--50);
 	background: var(--wp--preset--color--base);
 
+	&__rating {
+		display: flex;
+		gap: 2px;
+		margin: 0 0 var(--wp--preset--spacing--3);
+		font-size: var(--wp--preset--font-size--md);
+		line-height: 1;
+	}
+
+	&__star {
+		display: inline-block;
+		position: relative;
+		/* empty = faded primary via color-mix */
+		color: color-mix(in srgb, var(--wp--preset--color--primary) 20%, transparent);
+
+		&.is-full {
+			color: var(--wp--preset--color--primary);
+		}
+
+		&.is-half::after {
+			content: "★";
+			position: absolute;
+			inset: 0;
+			width: 50%;
+			overflow: hidden;
+			display: inline-block;
+			color: var(--wp--preset--color--primary);
+		}
+	}
+
 	&__quote p {
 		font-size: var(--wp--preset--font-size--md);
 		line-height: 1.7;

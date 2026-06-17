@@ -11,11 +11,42 @@ import {
 	TextControl,
 	TextareaControl,
 	SelectControl,
+	RangeControl,
 	Button,
 } from '@wordpress/components';
 import metadata from './block.json';
 import save from './save';
 import './style.scss';
+
+function Stars( { rating } ) {
+	if ( ! rating ) {
+		return null;
+	}
+	const stars = [];
+	for ( let i = 1; i <= 5; i++ ) {
+		let cls = 'wolf-blocks-testimonial-card__star';
+		if ( rating >= i ) {
+			cls += ' is-full';
+		} else if ( rating >= i - 0.5 ) {
+			cls += ' is-half';
+		} else {
+			cls += ' is-empty';
+		}
+		stars.push(
+			<span key={ i } className={ cls } aria-hidden="true">
+				★
+			</span>
+		);
+	}
+	return (
+		<p
+			className="wolf-blocks-testimonial-card__rating"
+			aria-label={ `${ rating } ${ __( 'out of 5', 'wolf-blocks' ) }` }
+		>
+			{ stars }
+		</p>
+	);
+}
 
 function Edit( { attributes, setAttributes } ) {
 	const {
@@ -27,6 +58,7 @@ function Edit( { attributes, setAttributes } ) {
 		link,
 		imagePosition,
 		textAlign,
+		rating,
 	} = attributes;
 
 	const blockProps = useBlockProps( {
@@ -41,6 +73,16 @@ function Edit( { attributes, setAttributes } ) {
 						label={ __( 'Quote', 'wolf-blocks' ) }
 						value={ content }
 						onChange={ ( val ) => setAttributes( { content: val } ) }
+					/>
+					<RangeControl
+						label={ __( 'Rating (0 = hidden)', 'wolf-blocks' ) }
+						value={ rating }
+						min={ 0 }
+						max={ 5 }
+						step={ 0.5 }
+						onChange={ ( val ) =>
+							setAttributes( { rating: val ?? 0 } )
+						}
 					/>
 					<TextControl
 						label={ __( 'Author Name', 'wolf-blocks' ) }
@@ -154,6 +196,7 @@ function Edit( { attributes, setAttributes } ) {
 				</PanelBody>
 			</InspectorControls>
 			<figure { ...blockProps }>
+				<Stars rating={ rating } />
 				<blockquote className="wolf-blocks-testimonial-card__quote">
 					<p>
 						{ content ||
