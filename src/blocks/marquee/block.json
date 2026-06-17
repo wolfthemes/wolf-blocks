@@ -35,6 +35,18 @@
 		"color": {
 			"background": false,
 			"text": false
+		},
+		"typography": {
+			"fontSize": true,
+			"lineHeight": true,
+			"fontFamily": true,
+			"fontWeight": true,
+			"fontStyle": true,
+			"textTransform": true,
+			"letterSpacing": true,
+			"__experimentalDefaultControls": {
+				"fontSize": true
+			}
 		}
 	}
 }

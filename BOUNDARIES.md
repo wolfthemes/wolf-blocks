@@ -26,7 +26,7 @@ Every active theme MUST define these for blocks to render correctly:
 - --wp--preset--color--base
 - --wp--preset--font-family--heading
 - --wp--preset--font-family--body
-- --wp--preset--font-size--sm through --wp--preset--font-size--2xl
+- --wp--preset--font-size--sm through --wp--preset--font-size--2-xl
 
 ## Block-specific vars (optional, theme can override)
 - --wolf-marquee-speed  (default: 30s)

@@ -76,7 +76,7 @@ export default function save( { attributes } ) {
 				{ buttonUrl && (
 					<a
 						href={ buttonUrl }
-						className="wolf-blocks-pricing-table__btn wolf-blocks-pricing-table__btn--primary"
+						className="wp-element-button wolf-blocks-pricing-table__btn wolf-blocks-pricing-table__btn--primary"
 					>
 						{ buttonText }
 					</a>
@@ -84,7 +84,7 @@ export default function save( { attributes } ) {
 				{ secondaryButtonUrl && (
 					<a
 						href={ secondaryButtonUrl }
-						className="wolf-blocks-pricing-table__btn wolf-blocks-pricing-table__btn--secondary"
+						className="wp-element-button is-style-outline wolf-blocks-pricing-table__btn wolf-blocks-pricing-table__btn--secondary"
 					>
 						{ secondaryButtonText }
 					</a>
