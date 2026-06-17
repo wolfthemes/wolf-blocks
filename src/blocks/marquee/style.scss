@@ -20,6 +20,7 @@
 
 	&__track {
 		display: inline-flex;
+		gap: var(--wp--preset--spacing--1);
 
 		&--left {
 			animation: wolf-marquee-left var(--wolf-marquee-duration, 30s) linear infinite;
