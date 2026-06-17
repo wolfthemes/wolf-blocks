@@ -21,8 +21,9 @@
 
 	&__unit {
 		display: flex;
-		align-items: baseline;
-		gap: 2px;
+		flex-direction: column;
+		align-items: center;
+		gap: 1px;
 
 		strong {
 			font-size: 1.5em; /* scales with block font-size */
