@@ -51,13 +51,19 @@ class Countdown_Block {
 			return '';
 		}
 
+		$wrapper_attrs = get_block_wrapper_attributes(
+			array(
+				'class'              => 'wolf-blocks-countdown',
+				'data-target'        => esc_attr( $target_date ),
+				'data-expired-text'  => esc_attr( $expired_text ),
+				'data-show-days'     => $show_days ? 'true' : 'false',
+				'data-show-seconds'  => $show_seconds ? 'true' : 'false',
+			)
+		);
+
 		ob_start();
 		?>
-		<div class="wolf-blocks-countdown"
-			data-target="<?php echo esc_attr( $target_date ); ?>"
-			data-expired-text="<?php echo esc_attr( $expired_text ); ?>"
-			data-show-days="<?php echo $show_days ? 'true' : 'false'; ?>"
-			data-show-seconds="<?php echo $show_seconds ? 'true' : 'false'; ?>">
+		<div <?php echo $wrapper_attrs; // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped -- get_block_wrapper_attributes() is a trusted WP core function. ?> >
 			<span class="wolf-blocks-countdown__label"><?php echo esc_html( $label ); ?></span>
 			<div class="wolf-blocks-countdown__units">
 				<?php if ( $show_days ) : ?>

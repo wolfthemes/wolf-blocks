@@ -2,7 +2,7 @@
 	display: inline-flex;
 	align-items: center;
 	gap: var(--wp--preset--spacing--3);
-	font-size: var(--wp--preset--font-size--sm);
+	font-size: var(--wp--preset--font-size--sm); /* default; overridden by typography support */
 	padding: var(--wp--preset--spacing--2) var(--wp--preset--spacing--3);
 	border: var(--wolf-border-width) solid var(--wolf-border-color);
 	border-radius: var(--wolf-radius-md);
@@ -25,13 +25,13 @@
 		gap: 2px;
 
 		strong {
-			font-size: var(--wp--preset--font-size--base);
+			font-size: 1.5em; /* scales with block font-size */
 			font-weight: 700;
 			font-variant-numeric: tabular-nums;
 		}
 
 		small {
-			font-size: var(--wp--preset--font-size--xs);
+			font-size: 0.75em; /* scales with block font-size */
 			opacity: 0.6;
 		}
 	}

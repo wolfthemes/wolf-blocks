@@ -38,6 +38,9 @@
 		}
 	},
 	"supports": {
-		"html": false
+		"html": false,
+		"typography": {
+			"fontSize": true
+		}
 	}
 }
