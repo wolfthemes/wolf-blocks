@@ -40,7 +40,15 @@
 	"supports": {
 		"html": false,
 		"typography": {
-			"fontSize": true
+			"fontSize": true,
+			"lineHeight": true,
+			"fontFamily": true,
+			"fontWeight": true,
+			"fontStyle": true,
+			"letterSpacing": true,
+			"__experimentalDefaultControls": {
+				"fontSize": true
+			}
 		}
 	}
 }
