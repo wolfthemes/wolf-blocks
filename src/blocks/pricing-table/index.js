@@ -246,7 +246,7 @@ function Edit( { attributes, setAttributes } ) {
 					{ buttonUrl && (
 						<a
 							href={ buttonUrl }
-							className="wolf-blocks-pricing-table__btn wolf-blocks-pricing-table__btn--primary"
+							className="wp-element-button wolf-blocks-pricing-table__btn wolf-blocks-pricing-table__btn--primary"
 						>
 							{ buttonText }
 						</a>
@@ -254,7 +254,7 @@ function Edit( { attributes, setAttributes } ) {
 					{ secondaryButtonUrl && (
 						<a
 							href={ secondaryButtonUrl }
-							className="wolf-blocks-pricing-table__btn wolf-blocks-pricing-table__btn--secondary"
+							className="wp-element-button is-style-outline wolf-blocks-pricing-table__btn wolf-blocks-pricing-table__btn--secondary"
 						>
 							{ secondaryButtonText }
 						</a>
