@@ -25,9 +25,21 @@
 		"rows": {
 			"type": "array",
 			"default": [
-				{ "feature": "Direct developer support", "us": true, "competitor": false },
-				{ "feature": "Lifetime updates", "us": true, "competitor": false },
-				{ "feature": "Marketplace commission", "us": false, "competitor": true }
+				{
+					"feature": "Direct developer support",
+					"us": true,
+					"competitor": false
+				},
+				{
+					"feature": "Lifetime updates",
+					"us": true,
+					"competitor": false
+				},
+				{
+					"feature": "Marketplace commission",
+					"us": false,
+					"competitor": true
+				}
 			],
 			"items": {
 				"type": "object",

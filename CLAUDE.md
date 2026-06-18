@@ -56,7 +56,12 @@ npm run lint:css ← SCSS linting
 npm run lint:php ← PHP linting
 ```
 
+## Toolchain versions (pinned for compatibility)
+- `@wordpress/scripts@^31.8.0` — React 18 support, ESLint v8 (still supports `.eslintrc.js` legacy config)
+- Do NOT upgrade to `@wordpress/scripts@32+` — ESLint v10 drops `.eslintrc.js` support and requires flat config migration
+- wolf-store uses `@wordpress/scripts@24` (React 17 only) — wolf-blocks intentionally diverges here
+
 ## Related projects
 - Theme: ../seijaku-fse/ (reads BOUNDARIES.md)
-- Store plugin: ../wolf-store/ (architecture reference)
+- Store plugin: /mnt/c/Users/Constantin/wolfthemes-dev/wolf-store-docker/plugins/wolf-store/ (architecture reference)
 - Parent theme: ../wolf-blank/ (defines --wolf-* vars)

@@ -4,12 +4,16 @@ Reusable Gutenberg blocks for WolfThemes projects. All visual tokens (colors, fo
 
 ## Blocks
 
-| Block | Status |
+| Block | Notes |
 |---|---|
-| Marquee | ✅ implemented |
-| Stats Counter | 🔲 scaffold |
-| Testimonial Card | 🔲 scaffold |
-| Pricing Table | 🔲 scaffold |
+| Marquee | scrolling text band |
+| Stats Counter | animated counter, IntersectionObserver |
+| Testimonial Card | quote + avatar + author |
+| Pricing Table | pricing tiers, services list, offer price |
+| Countdown | dynamic block (PHP render_callback), manual date or wolf-store offer |
+| Comparison Table | us vs competitor feature table, repeatable rows with reorder |
+| Feature Grid | InnerBlocks grid, 2–4 columns |
+| Feature Grid Item | child of feature-grid, icon picker, RichText title+desc |
 
 ## Development
 

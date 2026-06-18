@@ -16,11 +16,11 @@
 		"packages-update": "wp-scripts packages-update"
 	},
 	"devDependencies": {
-		"@wordpress/eslint-plugin": "^25.4.1",
+		"@wordpress/eslint-plugin": "^24.5.0",
 		"@wordpress/icons": "^14.0.1",
-		"@wordpress/prettier-config": "^4.48.1",
-		"@wordpress/scripts": "^32.4.1",
-		"@wordpress/stylelint-config": "^23.40.1",
+		"@wordpress/prettier-config": "^4.43.0",
+		"@wordpress/scripts": "^31.8.0",
+		"@wordpress/stylelint-config": "^23.35.0",
 		"copy-webpack-plugin": "^11.0.0",
 		"stylelint": "^16.8.2"
 	}

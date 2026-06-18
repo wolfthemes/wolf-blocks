@@ -1,6 +1,10 @@
 import { registerBlockType } from '@wordpress/blocks';
 import { __ } from '@wordpress/i18n';
-import { useBlockProps, InspectorControls, RichText } from '@wordpress/block-editor';
+import {
+	useBlockProps,
+	InspectorControls,
+	RichText,
+} from '@wordpress/block-editor';
 import { PanelBody, SelectControl } from '@wordpress/components';
 import {
 	Icon,
@@ -36,69 +40,65 @@ export const ICON_MAP = {
 };
 
 const ICON_OPTIONS = [
-	{ label: __( 'Star', 'wolf-blocks' ), value: 'starFilled' },
-	{ label: __( 'Shield', 'wolf-blocks' ), value: 'shield' },
-	{ label: __( 'Thumbs Up', 'wolf-blocks' ), value: 'thumbsUp' },
-	{ label: __( 'Lock', 'wolf-blocks' ), value: 'lock' },
-	{ label: __( 'Plugins', 'wolf-blocks' ), value: 'plugins' },
-	{ label: __( 'Layout', 'wolf-blocks' ), value: 'layout' },
-	{ label: __( 'Color', 'wolf-blocks' ), value: 'color' },
-	{ label: __( 'Tag', 'wolf-blocks' ), value: 'tag' },
-	{ label: __( 'People', 'wolf-blocks' ), value: 'people' },
-	{ label: __( 'Archive', 'wolf-blocks' ), value: 'archive' },
-	{ label: __( 'Check', 'wolf-blocks' ), value: 'check' },
-	{ label: __( 'Settings', 'wolf-blocks' ), value: 'cog' },
+	{ label: __('Star', 'wolf-blocks'), value: 'starFilled' },
+	{ label: __('Shield', 'wolf-blocks'), value: 'shield' },
+	{ label: __('Thumbs Up', 'wolf-blocks'), value: 'thumbsUp' },
+	{ label: __('Lock', 'wolf-blocks'), value: 'lock' },
+	{ label: __('Plugins', 'wolf-blocks'), value: 'plugins' },
+	{ label: __('Layout', 'wolf-blocks'), value: 'layout' },
+	{ label: __('Color', 'wolf-blocks'), value: 'color' },
+	{ label: __('Tag', 'wolf-blocks'), value: 'tag' },
+	{ label: __('People', 'wolf-blocks'), value: 'people' },
+	{ label: __('Archive', 'wolf-blocks'), value: 'archive' },
+	{ label: __('Check', 'wolf-blocks'), value: 'check' },
+	{ label: __('Settings', 'wolf-blocks'), value: 'cog' },
 ];
 
-function Edit( { attributes, setAttributes } ) {
+function Edit({ attributes, setAttributes }) {
 	const { icon, title, description } = attributes;
 
-	const blockProps = useBlockProps( {
+	const blockProps = useBlockProps({
 		className: 'wolf-blocks-feature-grid-item',
-	} );
+	});
 
-	const iconObj = ICON_MAP[ icon ] || starFilled;
+	const iconObj = ICON_MAP[icon] || starFilled;
 
 	return (
 		<>
 			<InspectorControls>
-				<PanelBody title={ __( 'Icon', 'wolf-blocks' ) }>
+				<PanelBody title={__('Icon', 'wolf-blocks')}>
 					<SelectControl
-						label={ __( 'Icon', 'wolf-blocks' ) }
-						value={ icon }
-						options={ ICON_OPTIONS }
-						onChange={ ( val ) =>
-							setAttributes( { icon: val } )
-						}
+						label={__('Icon', 'wolf-blocks')}
+						value={icon}
+						options={ICON_OPTIONS}
+						onChange={val => setAttributes({ icon: val })}
 					/>
 				</PanelBody>
 			</InspectorControls>
-			<div { ...blockProps }>
-				<span className="wolf-blocks-feature-grid-item__icon">
-					<Icon icon={ iconObj } />
+			<div {...blockProps}>
+				<span className='wolf-blocks-feature-grid-item__icon'>
+					<Icon icon={iconObj} />
 				</span>
 				<RichText
-					tagName="h3"
-					className="wolf-blocks-feature-grid-item__title"
-					value={ title }
-					onChange={ ( val ) => setAttributes( { title: val } ) }
-					placeholder={ __( 'Feature title…', 'wolf-blocks' ) }
+					tagName='h3'
+					className='wolf-blocks-feature-grid-item__title'
+					value={title}
+					onChange={val => setAttributes({ title: val })}
+					placeholder={__('Feature title…', 'wolf-blocks')}
 				/>
 				<RichText
-					tagName="p"
-					className="wolf-blocks-feature-grid-item__description"
-					value={ description }
-					onChange={ ( val ) =>
-						setAttributes( { description: val } )
-					}
-					placeholder={ __( 'Description…', 'wolf-blocks' ) }
+					tagName='p'
+					className='wolf-blocks-feature-grid-item__description'
+					value={description}
+					onChange={val => setAttributes({ description: val })}
+					placeholder={__('Description…', 'wolf-blocks')}
 				/>
 			</div>
 		</>
 	);
 }
 
-registerBlockType( metadata.name, {
+registerBlockType(metadata.name, {
 	edit: Edit,
 	save,
-} );
+});

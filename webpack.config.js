@@ -1,6 +1,6 @@
-const defaultConfig = require( '@wordpress/scripts/config/webpack.config' );
-const CopyPlugin = require( 'copy-webpack-plugin' );
-const path = require( 'path' );
+const defaultConfig = require('@wordpress/scripts/config/webpack.config');
+const CopyPlugin = require('copy-webpack-plugin');
+const path = require('path');
 
 module.exports = {
 	...defaultConfig,
@@ -21,24 +21,24 @@ module.exports = {
 	},
 	output: {
 		...defaultConfig.output,
-		path: path.resolve( __dirname, 'build' ),
+		path: path.resolve(__dirname, 'build'),
 	},
 	plugins: [
 		...defaultConfig.plugins,
 		// Copy block.json files from src to build so register_block_type() finds
 		// them alongside the compiled JS.
-		new CopyPlugin( {
+		new CopyPlugin({
 			patterns: [
 				{
 					from: 'src/blocks/*/block.json',
-					to( { absoluteFilename } ) {
+					to({ absoluteFilename }) {
 						const blockDir = path.basename(
-							path.dirname( absoluteFilename )
+							path.dirname(absoluteFilename)
 						);
-						return `blocks/${ blockDir }/block.json`;
+						return `blocks/${blockDir}/block.json`;
 					},
 				},
 			],
-		} ),
+		}),
 	],
 };

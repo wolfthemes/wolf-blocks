@@ -17,7 +17,7 @@
 		position: relative;
 
 		/* empty = faded primary via color-mix */
-		color: color-mix(in sRGB, var(--wp--preset--color--primary) 20%, transparent);
+		color: color-mix(in srgb, var(--wp--preset--color--primary) 20%, transparent);
 
 		&.is-full {
 			color: var(--wp--preset--color--primary);
