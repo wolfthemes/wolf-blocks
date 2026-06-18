@@ -2,9 +2,17 @@
 	display: grid;
 	gap: var(--wp--preset--spacing--6);
 
-	&--cols-2 { grid-template-columns: repeat(2, 1fr); }
-	&--cols-3 { grid-template-columns: repeat(3, 1fr); }
-	&--cols-4 { grid-template-columns: repeat(4, 1fr); }
+	&--cols-2 {
+		grid-template-columns: repeat(2, 1fr);
+	}
+
+	&--cols-3 {
+		grid-template-columns: repeat(3, 1fr);
+	}
+
+	&--cols-4 {
+		grid-template-columns: repeat(4, 1fr);
+	}
 
 	@media (max-width: 768px) {
 		/* stylelint-disable-next-line declaration-no-important */
