@@ -61,6 +61,10 @@ npm run lint:php ← PHP linting
 - Do NOT upgrade to `@wordpress/scripts@32+` — ESLint v10 drops `.eslintrc.js` support and requires flat config migration
 - wolf-store uses `@wordpress/scripts@24` (React 17 only) — wolf-blocks intentionally diverges here
 
+## Knowledge base
+Main KB (cross-project decisions, architecture, product pages): `/mnt/c/Users/Constantin/wolfthemes-dev/wolf-claude-memory/`
+wolf-blocks product page: `/mnt/c/Users/Constantin/wolfthemes-dev/wolf-claude-memory/wiki/products/wolf-blocks/README.md`
+
 ## Related projects
 - Theme: ../seijaku-fse/ (reads BOUNDARIES.md)
 - Store plugin: /mnt/c/Users/Constantin/wolfthemes-dev/wolf-store-docker/plugins/wolf-store/ (architecture reference)
