@@ -43,8 +43,8 @@ function Edit({ attributes, setAttributes }) {
 						)}
 						value={apiKey}
 						onChange={val => setAttributes({ apiKey: val })}
-						type="password"
-						autoComplete="off"
+						type='password'
+						autoComplete='off'
 					/>
 					<TextControl
 						label={__('Audience List ID', 'wolf-blocks')}
@@ -97,7 +97,7 @@ function Edit({ attributes, setAttributes }) {
 			</InspectorControls>
 			<div {...blockProps}>
 				{isMisconfigured && (
-					<Notice status="warning" isDismissible={false}>
+					<Notice status='warning' isDismissible={false}>
 						{__(
 							'Add your Mailchimp API Key and Audience List ID in the block settings.',
 							'wolf-blocks'
@@ -105,27 +105,27 @@ function Edit({ attributes, setAttributes }) {
 					</Notice>
 				)}
 				<form
-					className="wolf-blocks-mailchimp-form__form"
+					className='wolf-blocks-mailchimp-form__form'
 					onSubmit={e => e.preventDefault()}
 				>
 					{showName && (
-						<div className="wolf-blocks-mailchimp-form__field">
+						<div className='wolf-blocks-mailchimp-form__field'>
 							<input
-								type="text"
+								type='text'
 								placeholder={namePlaceholder}
 								disabled
 							/>
 						</div>
 					)}
-					<div className="wolf-blocks-mailchimp-form__field">
+					<div className='wolf-blocks-mailchimp-form__field'>
 						<input
-							type="email"
+							type='email'
 							placeholder={emailPlaceholder}
 							disabled
 						/>
 					</div>
-					<div className="wolf-blocks-mailchimp-form__action">
-						<button type="submit" disabled>
+					<div className='wolf-blocks-mailchimp-form__action'>
+						<button type='submit' disabled>
 							{buttonLabel}
 						</button>
 					</div>
