@@ -14,12 +14,12 @@ defined( 'ABSPATH' ) || exit;
 class Mailchimp_Block {
 
 	/**
-	 * wp_options key prefix used to stash the API key server-side.
+	 * Option key prefix used to stash the API key server-side.
 	 * Never exposed in frontend HTML.
 	 */
 	const OPTION_PREFIX = '_wolf_blocks_mc_key_';
 
-	public function render( array $attributes, string $content ): string {
+	public function render( array $attributes, string $content ): string { // phpcs:ignore Generic.CodeAnalysis.UnusedFunctionParameter.FoundAfterLastUsed, VariableAnalysis.CodeAnalysis.VariableAnalysis.UnusedVariable
 		$api_key = trim( $attributes['apiKey'] ?? '' );
 		$list_id = trim( $attributes['listId'] ?? '' );
 
@@ -31,16 +31,16 @@ class Mailchimp_Block {
 		// The REST endpoint retrieves it without ever exposing it to the client.
 		update_option( self::OPTION_PREFIX . md5( $list_id ), $api_key, false );
 
-		$show_name        = ! empty( $attributes['showName'] );
-		$button_label     = sanitize_text_field( $attributes['buttonLabel'] ?? __( 'Subscribe', 'wolf-blocks' ) );
-		$name_placeholder = sanitize_text_field( $attributes['namePlaceholder'] ?? __( 'Your name', 'wolf-blocks' ) );
+		$show_name         = ! empty( $attributes['showName'] );
+		$button_label      = sanitize_text_field( $attributes['buttonLabel'] ?? __( 'Subscribe', 'wolf-blocks' ) );
+		$name_placeholder  = sanitize_text_field( $attributes['namePlaceholder'] ?? __( 'Your name', 'wolf-blocks' ) );
 		$email_placeholder = sanitize_text_field( $attributes['emailPlaceholder'] ?? __( 'Your email', 'wolf-blocks' ) );
-		$success_message  = sanitize_text_field( $attributes['successMessage'] ?? __( 'Thanks for subscribing!', 'wolf-blocks' ) );
-		$error_message    = sanitize_text_field( $attributes['errorMessage'] ?? __( 'Something went wrong. Please try again.', 'wolf-blocks' ) );
+		$success_message   = sanitize_text_field( $attributes['successMessage'] ?? __( 'Thanks for subscribing!', 'wolf-blocks' ) );
+		$error_message     = sanitize_text_field( $attributes['errorMessage'] ?? __( 'Something went wrong. Please try again.', 'wolf-blocks' ) );
 
-		$uid       = wp_unique_id( 'mcf-' );
-		$rest_url  = esc_url( rest_url( 'wolf-blocks/v1/subscribe' ) );
-		$nonce     = wp_create_nonce( 'wp_rest' );
+		$uid      = wp_unique_id( 'mcf-' );
+		$rest_url = esc_url( rest_url( 'wolf-blocks/v1/subscribe' ) );
+		$nonce    = wp_create_nonce( 'wp_rest' );
 
 		$wrapper_attrs = get_block_wrapper_attributes(
 			array(

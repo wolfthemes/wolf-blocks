@@ -98,7 +98,7 @@ class Mailchimp_Rest {
 		$merge_fields = array();
 		if ( $name ) {
 			// Split on first space for FNAME / LNAME if possible.
-			$parts              = explode( ' ', $name, 2 );
+			$parts                 = explode( ' ', $name, 2 );
 			$merge_fields['FNAME'] = $parts[0];
 			if ( isset( $parts[1] ) ) {
 				$merge_fields['LNAME'] = $parts[1];
@@ -124,7 +124,7 @@ class Mailchimp_Rest {
 					'Content-Type'  => 'application/json',
 				),
 				'body'    => wp_json_encode( $body ),
-				'timeout' => 15,
+				'timeout' => 10, // phpcs:ignore WordPressVIPMinimum.Performance.RemoteRequestTimeout.timeout_timeout
 			)
 		);
 
@@ -142,7 +142,7 @@ class Mailchimp_Rest {
 		$data   = json_decode( wp_remote_retrieve_body( $response ), true );
 
 		// 200 = updated existing member, 400 with "Member Exists" is also handled by PUT.
-		if ( $status === 200 ) {
+		if ( 200 === $status ) {
 			return new \WP_REST_Response( array( 'success' => true ), 200 );
 		}
 
