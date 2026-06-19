@@ -31,7 +31,7 @@ class Mailchimp_Settings {
 	public function add_settings_page(): void {
 		add_options_page(
 			__( 'Wolf Blocks — Mailchimp', 'wolf-blocks' ),
-			__( 'Wolf Blocks Mailchimp', 'wolf-blocks' ),
+			__( 'Wolf Blocks — Mailchimp', 'wolf-blocks' ),
 			'manage_options',
 			self::PAGE_SLUG,
 			array( $this, 'render_page' )

@@ -8,6 +8,7 @@
 	"description": "A single feature item with icon, title, and description. Must be used inside a Feature Grid block.",
 	"textdomain": "wolf-blocks",
 	"editorScript": "file:./index.js",
+	"render": "file:./render.php",
 	"parent": ["wolf-blocks/feature-grid"],
 	"usesContext": ["wolf-blocks/feature-grid-columns"],
 	"attributes": {

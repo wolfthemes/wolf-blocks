@@ -21,9 +21,27 @@
 		flex: 0 0 auto;
 	}
 
+	@keyframes mcf-fadein {
+
+		from {
+			opacity: 0;
+			transform: translateY(-4px);
+		}
+
+		to {
+			opacity: 1;
+			transform: translateY(0);
+		}
+	}
+
 	&__message {
 		flex: 1 1 100%;
 		font-size: var(--wp--preset--font-size--small, 0.875em);
+
+
+		&:not([hidden]) {
+			animation: mcf-fadein 0.25s ease;
+		}
 
 		&[hidden] {
 			display: none;
@@ -42,8 +60,5 @@
 		}
 	}
 
-	input[aria-invalid="true"] {
-		outline: 2px solid var(--wp--preset--color--error, #c62828);
-		outline-offset: 2px;
-	}
+
 }
