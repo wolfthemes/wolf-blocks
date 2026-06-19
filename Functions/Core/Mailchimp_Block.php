@@ -13,23 +13,16 @@ defined( 'ABSPATH' ) || exit;
 
 class Mailchimp_Block {
 
-	/**
-	 * Option key prefix used to stash the API key server-side.
-	 * Never exposed in frontend HTML.
-	 */
-	const OPTION_PREFIX = '_wolf_blocks_mc_key_';
+	/** Option name where the admin-entered API key is stored in wp_options. */
+	const API_KEY_OPTION = 'wolf_blocks_mailchimp_api_key';
 
 	public function render( array $attributes, string $content ): string { // phpcs:ignore Generic.CodeAnalysis.UnusedFunctionParameter.FoundAfterLastUsed, VariableAnalysis.CodeAnalysis.VariableAnalysis.UnusedVariable
-		$api_key = trim( $attributes['apiKey'] ?? '' );
 		$list_id = trim( $attributes['listId'] ?? '' );
+		$api_key = self::get_api_key();
 
 		if ( ! $api_key || ! $list_id ) {
 			return '';
 		}
-
-		// Stash the API key server-side, keyed by a hash of the list ID.
-		// The REST endpoint retrieves it without ever exposing it to the client.
-		update_option( self::OPTION_PREFIX . md5( $list_id ), $api_key, false );
 
 		$show_name         = ! empty( $attributes['showName'] );
 		$button_label      = sanitize_text_field( $attributes['buttonLabel'] ?? __( 'Subscribe', 'wolf-blocks' ) );
@@ -95,12 +88,11 @@ class Mailchimp_Block {
 	}
 
 	/**
-	 * Retrieves the stored API key for a given list ID.
+	 * Returns the Mailchimp API key stored in WP Admin settings.
 	 *
-	 * @param string $list_id The Mailchimp audience list ID.
-	 * @return string The API key, or empty string if not found.
+	 * @return string The API key, or empty string if not configured.
 	 */
-	public static function get_api_key( string $list_id ): string {
-		return (string) get_option( self::OPTION_PREFIX . md5( $list_id ), '' );
+	public static function get_api_key(): string {
+		return (string) get_option( self::API_KEY_OPTION, '' );
 	}
 }

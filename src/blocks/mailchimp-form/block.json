@@ -11,10 +11,6 @@
 	"viewScript": "file:./view.js",
 	"style": "file:./style-index.css",
 	"attributes": {
-		"apiKey": {
-			"type": "string",
-			"default": ""
-		},
 		"listId": {
 			"type": "string",
 			"default": ""

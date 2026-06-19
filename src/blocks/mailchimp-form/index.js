@@ -6,13 +6,15 @@ import {
 	TextControl,
 	ToggleControl,
 	Notice,
+	ExternalLink,
 } from '@wordpress/components';
+import { useSelect } from '@wordpress/data';
+import { store as coreStore } from '@wordpress/core-data';
 import metadata from './block.json';
 import './style.scss';
 
 function Edit({ attributes, setAttributes }) {
 	const {
-		apiKey,
 		listId,
 		showName,
 		buttonLabel,
@@ -22,7 +24,14 @@ function Edit({ attributes, setAttributes }) {
 		errorMessage,
 	} = attributes;
 
-	const isMisconfigured = !apiKey || !listId;
+	// Check whether the API key has been saved in WP Admin settings.
+	const apiKeyConfigured = useSelect(select => {
+		const setting = select(coreStore).getEntityRecord('root', 'site');
+		return setting?.wolf_blocks_mailchimp_api_key_set ?? null;
+	}, []);
+
+	const missingListId = !listId;
+	const missingApiKey = apiKeyConfigured === false;
 
 	const blockProps = useBlockProps({
 		className: 'wolf-blocks-mailchimp-form',
@@ -32,20 +41,9 @@ function Edit({ attributes, setAttributes }) {
 		<>
 			<InspectorControls>
 				<PanelBody
-					title={__('API Settings', 'wolf-blocks')}
-					initialOpen={isMisconfigured}
+					title={__('Mailchimp Settings', 'wolf-blocks')}
+					initialOpen={missingListId}
 				>
-					<TextControl
-						label={__('Mailchimp API Key', 'wolf-blocks')}
-						help={__(
-							'Found in Mailchimp → Account → Extras → API keys.',
-							'wolf-blocks'
-						)}
-						value={apiKey}
-						onChange={val => setAttributes({ apiKey: val })}
-						type='password'
-						autoComplete='off'
-					/>
 					<TextControl
 						label={__('Audience List ID', 'wolf-blocks')}
 						help={__(
@@ -55,6 +53,14 @@ function Edit({ attributes, setAttributes }) {
 						value={listId}
 						onChange={val => setAttributes({ listId: val })}
 					/>
+					{missingApiKey && (
+						<Notice status='warning' isDismissible={false}>
+							{__('No Mailchimp API key found.', 'wolf-blocks')}
+							<ExternalLink href='/wp-admin/options-general.php?page=wolf-blocks-mailchimp'>
+								{__('Configure it here.', 'wolf-blocks')}
+							</ExternalLink>
+						</Notice>
+					)}
 				</PanelBody>
 				<PanelBody title={__('Form Options', 'wolf-blocks')}>
 					<ToggleControl
@@ -96,10 +102,10 @@ function Edit({ attributes, setAttributes }) {
 				</PanelBody>
 			</InspectorControls>
 			<div {...blockProps}>
-				{isMisconfigured && (
+				{missingListId && (
 					<Notice status='warning' isDismissible={false}>
 						{__(
-							'Add your Mailchimp API Key and Audience List ID in the block settings.',
+							'Add your Mailchimp Audience List ID in the block settings.',
 							'wolf-blocks'
 						)}
 					</Notice>

@@ -68,7 +68,7 @@ class Mailchimp_Rest {
 		$email   = $request->get_param( 'email' );
 		$name    = $request->get_param( 'name' ) ?? '';
 
-		$api_key = Mailchimp_Block::get_api_key( $list_id );
+		$api_key = Mailchimp_Block::get_api_key();
 
 		if ( ! $api_key ) {
 			return new \WP_REST_Response(
