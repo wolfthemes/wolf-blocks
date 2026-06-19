@@ -1,0 +1,31 @@
+.wolf-blocks-mailchimp-form {
+	&__form {
+		display: flex;
+		flex-wrap: wrap;
+		gap: var(--wp--preset--spacing--30, 0.5rem);
+		align-items: flex-start;
+	}
+
+	&__field {
+		flex: 1 1 200px;
+
+		input {
+			display: block;
+			width: 100%;
+			box-sizing: border-box;
+		}
+	}
+
+	&__action {
+		flex: 0 0 auto;
+	}
+
+	&__message {
+		flex: 1 1 100%;
+		font-size: var(--wp--preset--font-size--small, 0.875em);
+
+		&[hidden] {
+			display: none;
+		}
+	}
+}

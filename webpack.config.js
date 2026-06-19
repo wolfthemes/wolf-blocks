@@ -18,6 +18,8 @@ module.exports = {
 		'blocks/feature-grid/index': './src/blocks/feature-grid/index.js',
 		'blocks/feature-grid-item/index':
 			'./src/blocks/feature-grid-item/index.js',
+		'blocks/mailchimp-form/index': './src/blocks/mailchimp-form/index.js',
+		'blocks/mailchimp-form/view': './src/blocks/mailchimp-form/view.js',
 	},
 	output: {
 		...defaultConfig.output,

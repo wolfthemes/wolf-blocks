@@ -1,0 +1,50 @@
+{
+	"$schema": "https://schemas.wp.org/trunk/block.json",
+	"apiVersion": 3,
+	"name": "wolf-blocks/mailchimp-form",
+	"version": "1.0.0",
+	"title": "Mailchimp Form",
+	"category": "wolf-blocks",
+	"description": "Email subscription form connected to a Mailchimp audience.",
+	"textdomain": "wolf-blocks",
+	"editorScript": "file:./index.js",
+	"viewScript": "file:./view.js",
+	"style": "file:./style-index.css",
+	"attributes": {
+		"apiKey": {
+			"type": "string",
+			"default": ""
+		},
+		"listId": {
+			"type": "string",
+			"default": ""
+		},
+		"showName": {
+			"type": "boolean",
+			"default": false
+		},
+		"buttonLabel": {
+			"type": "string",
+			"default": "Subscribe"
+		},
+		"namePlaceholder": {
+			"type": "string",
+			"default": "Your name"
+		},
+		"emailPlaceholder": {
+			"type": "string",
+			"default": "Your email"
+		},
+		"successMessage": {
+			"type": "string",
+			"default": "Thanks for subscribing!"
+		},
+		"errorMessage": {
+			"type": "string",
+			"default": "Something went wrong. Please try again."
+		}
+	},
+	"supports": {
+		"html": false
+	}
+}

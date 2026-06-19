@@ -28,6 +28,8 @@ class Block_Loader {
 			'feature-grid-item',
 		);
 
+		$this->register_mailchimp_form();
+
 		foreach ( $blocks as $block ) {
 			$path = WOLF_BLOCKS_DIR . '/build/blocks/' . $block;
 			if ( file_exists( $path . '/block.json' ) ) {
@@ -36,6 +38,19 @@ class Block_Loader {
 		}
 
 		$this->register_countdown();
+	}
+
+	private function register_mailchimp_form(): void {
+		$path = WOLF_BLOCKS_DIR . '/build/blocks/mailchimp-form';
+		if ( ! file_exists( $path . '/block.json' ) ) {
+			return;
+		}
+		register_block_type(
+			$path,
+			array(
+				'render_callback' => array( new Mailchimp_Block(), 'render' ),
+			)
+		);
 	}
 
 	private function register_countdown(): void {

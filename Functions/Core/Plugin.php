@@ -39,6 +39,7 @@ class Plugin {
 
 	public function init(): void {
 		new Block_Loader();
+		new Mailchimp_Rest();
 	}
 
 	public function get_plugin_url(): string {
