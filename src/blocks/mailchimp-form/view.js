@@ -1,8 +1,12 @@
 document.querySelectorAll('.wolf-blocks-mailchimp-form').forEach(root => {
 	const form = root.querySelector('.wolf-blocks-mailchimp-form__form');
-	const messageEl = root.querySelector('.wolf-blocks-mailchimp-form__message');
+	const messageEl = root.querySelector(
+		'.wolf-blocks-mailchimp-form__message'
+	);
 
-	if (!form || !messageEl) return;
+	if (!form || !messageEl) {
+		return;
+	}
 
 	const listId = root.dataset.listId;
 	const nonce = root.dataset.nonce;
@@ -20,14 +24,14 @@ document.querySelectorAll('.wolf-blocks-mailchimp-form').forEach(root => {
 		e.preventDefault();
 
 		const emailInput = form.querySelector('input[name="mc_email"]');
-		const nameInput = form.querySelector('input[name="mc_name"]');
-		const submitBtn = form.querySelector('button[type="submit"]');
-
 		const email = emailInput?.value.trim();
 		if (!email) {
 			emailInput?.focus();
 			return;
 		}
+
+		const nameInput = form.querySelector('input[name="mc_name"]');
+		const submitBtn = form.querySelector('button[type="submit"]');
 
 		submitBtn.disabled = true;
 		messageEl.setAttribute('hidden', '');
