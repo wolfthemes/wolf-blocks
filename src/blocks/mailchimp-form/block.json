@@ -31,6 +31,18 @@
 			"type": "string",
 			"default": "Your email"
 		},
+		"emptyEmailMessage": {
+			"type": "string",
+			"default": "Please enter your email address."
+		},
+		"invalidEmailMessage": {
+			"type": "string",
+			"default": "Please enter a valid email address."
+		},
+		"emptyNameMessage": {
+			"type": "string",
+			"default": "Please enter your name."
+		},
 		"successMessage": {
 			"type": "string",
 			"default": "Thanks for subscribing!"

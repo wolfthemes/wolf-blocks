@@ -20,6 +20,9 @@ function Edit({ attributes, setAttributes }) {
 		buttonLabel,
 		namePlaceholder,
 		emailPlaceholder,
+		emptyEmailMessage,
+		invalidEmailMessage,
+		emptyNameMessage,
 		successMessage,
 		errorMessage,
 	} = attributes;
@@ -62,7 +65,10 @@ function Edit({ attributes, setAttributes }) {
 						</Notice>
 					)}
 				</PanelBody>
-				<PanelBody title={__('Form Options', 'wolf-blocks')}>
+				<PanelBody
+					title={__('Form Options', 'wolf-blocks')}
+					initialOpen={false}
+				>
 					<ToggleControl
 						label={__('Ask for name', 'wolf-blocks')}
 						checked={showName}
@@ -89,13 +95,41 @@ function Edit({ attributes, setAttributes }) {
 						value={buttonLabel}
 						onChange={val => setAttributes({ buttonLabel: val })}
 					/>
+				</PanelBody>
+				<PanelBody
+					title={__('Messages', 'wolf-blocks')}
+					initialOpen={false}
+				>
+					{showName && (
+						<TextControl
+							label={__('Name required', 'wolf-blocks')}
+							value={emptyNameMessage}
+							onChange={val =>
+								setAttributes({ emptyNameMessage: val })
+							}
+						/>
+					)}
 					<TextControl
-						label={__('Success message', 'wolf-blocks')}
+						label={__('Email required', 'wolf-blocks')}
+						value={emptyEmailMessage}
+						onChange={val =>
+							setAttributes({ emptyEmailMessage: val })
+						}
+					/>
+					<TextControl
+						label={__('Invalid email', 'wolf-blocks')}
+						value={invalidEmailMessage}
+						onChange={val =>
+							setAttributes({ invalidEmailMessage: val })
+						}
+					/>
+					<TextControl
+						label={__('Success', 'wolf-blocks')}
 						value={successMessage}
 						onChange={val => setAttributes({ successMessage: val })}
 					/>
 					<TextControl
-						label={__('Error message', 'wolf-blocks')}
+						label={__('Server error', 'wolf-blocks')}
 						value={errorMessage}
 						onChange={val => setAttributes({ errorMessage: val })}
 					/>

@@ -24,12 +24,15 @@ class Mailchimp_Block {
 			return '';
 		}
 
-		$show_name         = ! empty( $attributes['showName'] );
-		$button_label      = sanitize_text_field( $attributes['buttonLabel'] ?? __( 'Subscribe', 'wolf-blocks' ) );
-		$name_placeholder  = sanitize_text_field( $attributes['namePlaceholder'] ?? __( 'Your name', 'wolf-blocks' ) );
-		$email_placeholder = sanitize_text_field( $attributes['emailPlaceholder'] ?? __( 'Your email', 'wolf-blocks' ) );
-		$success_message   = sanitize_text_field( $attributes['successMessage'] ?? __( 'Thanks for subscribing!', 'wolf-blocks' ) );
-		$error_message     = sanitize_text_field( $attributes['errorMessage'] ?? __( 'Something went wrong. Please try again.', 'wolf-blocks' ) );
+		$show_name             = ! empty( $attributes['showName'] );
+		$button_label          = sanitize_text_field( $attributes['buttonLabel'] ?? __( 'Subscribe', 'wolf-blocks' ) );
+		$name_placeholder      = sanitize_text_field( $attributes['namePlaceholder'] ?? __( 'Your name', 'wolf-blocks' ) );
+		$email_placeholder     = sanitize_text_field( $attributes['emailPlaceholder'] ?? __( 'Your email', 'wolf-blocks' ) );
+		$empty_email_message   = sanitize_text_field( $attributes['emptyEmailMessage'] ?? __( 'Please enter your email address.', 'wolf-blocks' ) );
+		$invalid_email_message = sanitize_text_field( $attributes['invalidEmailMessage'] ?? __( 'Please enter a valid email address.', 'wolf-blocks' ) );
+		$empty_name_message    = sanitize_text_field( $attributes['emptyNameMessage'] ?? __( 'Please enter your name.', 'wolf-blocks' ) );
+		$success_message       = sanitize_text_field( $attributes['successMessage'] ?? __( 'Thanks for subscribing!', 'wolf-blocks' ) );
+		$error_message         = sanitize_text_field( $attributes['errorMessage'] ?? __( 'Something went wrong. Please try again.', 'wolf-blocks' ) );
 
 		$uid      = wp_unique_id( 'mcf-' );
 		$rest_url = esc_url( rest_url( 'wolf-blocks/v1/subscribe' ) );
@@ -37,12 +40,15 @@ class Mailchimp_Block {
 
 		$wrapper_attrs = get_block_wrapper_attributes(
 			array(
-				'class'                => 'wolf-blocks-mailchimp-form',
-				'data-list-id'         => esc_attr( $list_id ),
-				'data-nonce'           => esc_attr( $nonce ),
-				'data-rest-url'        => $rest_url,
-				'data-success-message' => esc_attr( $success_message ),
-				'data-error-message'   => esc_attr( $error_message ),
+				'class'                  => 'wolf-blocks-mailchimp-form',
+				'data-list-id'           => esc_attr( $list_id ),
+				'data-nonce'             => esc_attr( $nonce ),
+				'data-rest-url'          => $rest_url,
+				'data-empty-email'       => esc_attr( $empty_email_message ),
+				'data-invalid-email'     => esc_attr( $invalid_email_message ),
+				'data-empty-name'        => esc_attr( $empty_name_message ),
+				'data-success-message'   => esc_attr( $success_message ),
+				'data-error-message'     => esc_attr( $error_message ),
 			)
 		);
 

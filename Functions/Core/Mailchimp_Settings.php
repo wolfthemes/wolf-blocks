@@ -68,7 +68,7 @@ class Mailchimp_Settings {
 	public function render_api_key_field(): void {
 		$value = get_option( self::OPTION_NAME, '' );
 		// Show a masked placeholder when a key is already saved.
-		$placeholder = $value ? __( '(saved — paste to replace)', 'wolf-blocks' ) : '';
+		$placeholder = $value ? str_repeat( '*', 36 ) : '';
 		?>
 		<input
 			type="password"
