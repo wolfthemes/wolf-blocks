@@ -13,7 +13,8 @@
 		"format:js": "wp-scripts format",
 		"format:css": "stylelint \"**/*.scss\" --fix",
 		"format:php": "composer run format:php",
-		"packages-update": "wp-scripts packages-update"
+		"packages-update": "wp-scripts packages-update",
+		"type-check": "echo \"No TypeScript sources to type-check.\""
 	},
 	"devDependencies": {
 		"@wordpress/eslint-plugin": "^24.5.0",

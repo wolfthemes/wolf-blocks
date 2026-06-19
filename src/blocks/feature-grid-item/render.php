@@ -5,11 +5,11 @@
  * @param array $attributes Block attributes.
  */
 
-$icon      = isset( $attributes['icon'] ) ? $attributes['icon'] : 'starFilled';
-$title     = isset( $attributes['title'] ) ? $attributes['title'] : '';
-$desc      = isset( $attributes['description'] ) ? $attributes['description'] : '';
+$wolf_blocks_icon  = isset( $attributes['icon'] ) ? $attributes['icon'] : 'starFilled';
+$wolf_blocks_title = isset( $attributes['title'] ) ? $attributes['title'] : '';
+$wolf_blocks_desc  = isset( $attributes['description'] ) ? $attributes['description'] : '';
 
-$icons = array(
+$wolf_blocks_icons = array(
 	'starFilled' => '<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M11.776 4.454a.25.25 0 01.448 0l2.069 4.192a.25.25 0 00.188.137l4.626.672a.25.25 0 01.139.426l-3.348 3.263a.25.25 0 00-.072.222l.79 4.607a.25.25 0 01-.362.263l-4.138-2.175a.25.25 0 00-.232 0l-4.138 2.175a.25.25 0 01-.363-.263l.79-4.607a.25.25 0 00-.071-.222L4.754 9.881a.25.25 0 01.139-.426l4.626-.672a.25.25 0 00.188-.137l2.069-4.192z"/></svg>',
 	'shield'     => '<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M12 3 4 6v6c0 5.25 3.5 8.5 8 9 4.5-.5 8-3.75 8-9V6l-8-3zm6.5 9c0 4.25-2.75 6.75-6.5 7.5-3.75-.75-6.5-3.25-6.5-7.5V7l6.5-2.5L18.5 7v5z"/></svg>',
 	'thumbsUp'   => '<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M19.7 10.3c-.4-.5-1-.8-1.7-.8H14V7c0-1.7-1.3-3-3-3h-.5v1.4l-.5 4.6-2 3H5v7.5h12.2c.9 0 1.7-.6 1.9-1.5l1.4-5.6c.1-.5 0-1.1-.3-1.6l-.5-.5zM6.5 19.5h-1v-6h1v6zm12.1-7.3-1.4 5.6c-.1.3-.4.6-.8.6H7.5v-6.1l2.1-3.2.5-4.3c.7.2 1.2.8 1.2 1.5v4.2h5.2c.3 0 .6.1.8.4.2.2.3.5.2.8l-.9.5z"/></svg>',
@@ -24,10 +24,10 @@ $icons = array(
 	'cog'        => '<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M13 19.9V21h-2v-1.1c-2.5-.4-4.5-2.4-4.9-4.9H5v-2h1.1C6.5 10.5 8.5 8.5 11 8.1V7h2v1.1c2.5.4 4.5 2.4 4.9 4.9H19v2h-1.1c-.4 2.5-2.4 4.5-4.9 4.9zM12 10c-2.2 0-4 1.8-4 4s1.8 4 4 4 4-1.8 4-4-1.8-4-4-4zm0 6.5c-1.4 0-2.5-1.1-2.5-2.5s1.1-2.5 2.5-2.5 2.5 1.1 2.5 2.5-1.1 2.5-2.5 2.5z"/></svg>',
 );
 
-$svg = isset( $icons[ $icon ] ) ? $icons[ $icon ] : $icons['starFilled'];
+$wolf_blocks_svg = isset( $wolf_blocks_icons[ $wolf_blocks_icon ] ) ? $wolf_blocks_icons[ $wolf_blocks_icon ] : $wolf_blocks_icons['starFilled'];
 ?>
-<div <?php echo get_block_wrapper_attributes( array( 'class' => 'wolf-blocks-feature-grid-item' ) ); ?>>
-	<span class="wolf-blocks-feature-grid-item__icon"><?php echo $svg; // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped ?></span>
-	<h3 class="wolf-blocks-feature-grid-item__title"><?php echo wp_kses_post( $title ); ?></h3>
-	<p class="wolf-blocks-feature-grid-item__description"><?php echo wp_kses_post( $desc ); ?></p>
+<div <?php echo wp_kses_post( get_block_wrapper_attributes( array( 'class' => 'wolf-blocks-feature-grid-item' ) ) ); ?>>
+	<span class="wolf-blocks-feature-grid-item__icon"><?php echo $wolf_blocks_svg; // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped ?></span>
+	<h3 class="wolf-blocks-feature-grid-item__title"><?php echo wp_kses_post( $wolf_blocks_title ); ?></h3>
+	<p class="wolf-blocks-feature-grid-item__description"><?php echo wp_kses_post( $wolf_blocks_desc ); ?></p>
 </div>

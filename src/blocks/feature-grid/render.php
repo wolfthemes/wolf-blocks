@@ -6,12 +6,12 @@
  * @param string $content    Inner blocks HTML.
  */
 
-$columns = isset( $attributes['columns'] ) ? (int) $attributes['columns'] : 4;
-$classes = implode( ' ', array(
+$wolf_blocks_columns = isset( $attributes['columns'] ) ? (int) $attributes['columns'] : 4;
+$wolf_blocks_classes = implode( ' ', array(
 	'wolf-blocks-feature-grid',
-	'wolf-blocks-feature-grid--cols-' . $columns,
+	'wolf-blocks-feature-grid--cols-' . $wolf_blocks_columns,
 ) );
 ?>
-<div <?php echo get_block_wrapper_attributes( array( 'class' => $classes ) ); ?>>
+<div <?php echo wp_kses_post( get_block_wrapper_attributes( array( 'class' => $wolf_blocks_classes ) ) ); ?>>
 	<?php echo $content; // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped ?>
 </div>
