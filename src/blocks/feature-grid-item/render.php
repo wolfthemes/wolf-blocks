@@ -5,9 +5,10 @@
  * @param array $attributes Block attributes.
  */
 
-$wolf_blocks_icon  = isset( $attributes['icon'] ) ? $attributes['icon'] : 'starFilled';
-$wolf_blocks_title = isset( $attributes['title'] ) ? $attributes['title'] : '';
-$wolf_blocks_desc  = isset( $attributes['description'] ) ? $attributes['description'] : '';
+$wolf_blocks_icon      = isset( $attributes['icon'] ) ? $attributes['icon'] : 'starFilled';
+$wolf_blocks_icon_size = isset( $attributes['iconSize'] ) ? (int) $attributes['iconSize'] : 32;
+$wolf_blocks_title     = isset( $attributes['title'] ) ? $attributes['title'] : '';
+$wolf_blocks_desc      = isset( $attributes['description'] ) ? $attributes['description'] : '';
 
 $wolf_blocks_icons = array(
 	'starFilled' => '<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M11.776 4.454a.25.25 0 01.448 0l2.069 4.192a.25.25 0 00.188.137l4.626.672a.25.25 0 01.139.426l-3.348 3.263a.25.25 0 00-.072.222l.79 4.607a.25.25 0 01-.362.263l-4.138-2.175a.25.25 0 00-.232 0l-4.138 2.175a.25.25 0 01-.363-.263l.79-4.607a.25.25 0 00-.071-.222L4.754 9.881a.25.25 0 01.139-.426l4.626-.672a.25.25 0 00.188-.137l2.069-4.192z"/></svg>',
@@ -27,7 +28,7 @@ $wolf_blocks_icons = array(
 $wolf_blocks_svg = isset( $wolf_blocks_icons[ $wolf_blocks_icon ] ) ? $wolf_blocks_icons[ $wolf_blocks_icon ] : $wolf_blocks_icons['starFilled'];
 ?>
 <div <?php echo wp_kses_post( get_block_wrapper_attributes( array( 'class' => 'wolf-blocks-feature-grid-item' ) ) ); ?>>
-	<span class="wolf-blocks-feature-grid-item__icon"><?php echo $wolf_blocks_svg; // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped ?></span>
+	<span class="wolf-blocks-feature-grid-item__icon" style="width:<?php echo esc_attr( $wolf_blocks_icon_size ); ?>px;height:<?php echo esc_attr( $wolf_blocks_icon_size ); ?>px;"><?php echo $wolf_blocks_svg; // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped ?></span>
 	<h3 class="wolf-blocks-feature-grid-item__title"><?php echo wp_kses_post( $wolf_blocks_title ); ?></h3>
 	<p class="wolf-blocks-feature-grid-item__description"><?php echo wp_kses_post( $wolf_blocks_desc ); ?></p>
 </div>

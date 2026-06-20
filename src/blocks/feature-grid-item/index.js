@@ -5,7 +5,7 @@ import {
 	InspectorControls,
 	RichText,
 } from '@wordpress/block-editor';
-import { PanelBody, SelectControl } from '@wordpress/components';
+import { PanelBody, SelectControl, RangeControl } from '@wordpress/components';
 import {
 	Icon,
 	starFilled,
@@ -55,7 +55,7 @@ const ICON_OPTIONS = [
 ];
 
 function Edit({ attributes, setAttributes }) {
-	const { icon, title, description } = attributes;
+	const { icon, iconSize, title, description } = attributes;
 
 	const blockProps = useBlockProps({
 		className: 'wolf-blocks-feature-grid-item',
@@ -73,10 +73,24 @@ function Edit({ attributes, setAttributes }) {
 						options={ICON_OPTIONS}
 						onChange={val => setAttributes({ icon: val })}
 					/>
+					<RangeControl
+						label={__('Icon size', 'wolf-blocks')}
+						value={iconSize}
+						min={16}
+						max={96}
+						step={4}
+						onChange={val => setAttributes({ iconSize: val })}
+					/>
 				</PanelBody>
 			</InspectorControls>
 			<div {...blockProps}>
-				<span className='wolf-blocks-feature-grid-item__icon'>
+				<span
+					className='wolf-blocks-feature-grid-item__icon'
+					style={{
+						width: `${iconSize}px`,
+						height: `${iconSize}px`,
+					}}
+				>
 					<Icon icon={iconObj} />
 				</span>
 				<RichText
