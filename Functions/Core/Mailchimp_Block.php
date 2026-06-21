@@ -84,7 +84,7 @@ class Mailchimp_Block {
 					>
 				</div>
 				<div class="wolf-blocks-mailchimp-form__action">
-					<button type="submit"><?php echo esc_html( $button_label ); ?></button>
+					<button type="submit" class="wp-element-button"><?php echo esc_html( $button_label ); ?></button>
 				</div>
 				<div class="wolf-blocks-mailchimp-form__message" aria-live="polite" hidden></div>
 			</form>
