@@ -4,28 +4,13 @@ function Stars({ rating }) {
 	if (!rating) {
 		return null;
 	}
-	const stars = [];
-	for (let i = 1; i <= 5; i++) {
-		let cls = 'wolf-blocks-testimonial-card__star';
-		if (rating >= i) {
-			cls += ' is-full';
-		} else if (rating >= i - 0.5) {
-			cls += ' is-half';
-		} else {
-			cls += ' is-empty';
-		}
-		stars.push(
-			<span key={i} className={cls} aria-hidden='true'>
-				★
-			</span>
-		);
-	}
+	const filled = Math.round(rating);
 	return (
 		<p
 			className='wolf-blocks-testimonial-card__rating'
 			aria-label={`${rating} out of 5`}
 		>
-			{stars}
+			{'★'.repeat(filled) + '☆'.repeat(5 - filled)}
 		</p>
 	);
 }

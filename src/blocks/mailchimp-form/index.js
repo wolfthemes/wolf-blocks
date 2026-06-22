@@ -165,7 +165,11 @@ function Edit({ attributes, setAttributes }) {
 						/>
 					</div>
 					<div className='wolf-blocks-mailchimp-form__action'>
-						<button type='submit' className='wp-element-button' disabled>
+						<button
+							type='submit'
+							className='wp-element-button'
+							disabled
+						>
 							{buttonLabel}
 						</button>
 					</div>

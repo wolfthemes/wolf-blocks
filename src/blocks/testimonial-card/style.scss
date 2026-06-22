@@ -15,23 +15,6 @@
 	&__star {
 		display: inline-block;
 		position: relative;
-
-		/* empty = faded primary via color-mix */
-		color: color-mix(in srgb, var(--wp--preset--color--primary) 20%, transparent);
-
-		&.is-full {
-			color: var(--wp--preset--color--primary);
-		}
-
-		&.is-half::after {
-			content: "★";
-			position: absolute;
-			inset: 0;
-			width: 50%;
-			overflow: hidden;
-			display: inline-block;
-			color: var(--wp--preset--color--primary);
-		}
 	}
 
 	&__quote p {

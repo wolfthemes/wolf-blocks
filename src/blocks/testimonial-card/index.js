@@ -22,28 +22,11 @@ function Stars({ rating }) {
 	if (!rating) {
 		return null;
 	}
-	const stars = [];
-	for (let i = 1; i <= 5; i++) {
-		let cls = 'wolf-blocks-testimonial-card__star';
-		if (rating >= i) {
-			cls += ' is-full';
-		} else if (rating >= i - 0.5) {
-			cls += ' is-half';
-		} else {
-			cls += ' is-empty';
-		}
-		stars.push(
-			<span key={i} className={cls} aria-hidden='true'>
-				★
-			</span>
-		);
-	}
+	const filled = Math.round(rating);
+	const label = `${rating} ${__('out of 5', 'wolf-blocks')}`;
 	return (
-		<p
-			className='wolf-blocks-testimonial-card__rating'
-			aria-label={`${rating} ${__('out of 5', 'wolf-blocks')}`}
-		>
-			{stars}
+		<p className='wolf-blocks-testimonial-card__rating' aria-label={label}>
+			{'★'.repeat(filled) + '☆'.repeat(5 - filled)}
 		</p>
 	);
 }
