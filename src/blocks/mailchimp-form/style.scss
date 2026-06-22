@@ -1,9 +1,11 @@
+@use "../../tokens" as *;
+
 .wolf-blocks-mailchimp-form {
 
 	&__form {
 		display: flex;
 		flex-wrap: wrap;
-		gap: var(--wp--preset--spacing--30, 0.5rem);
+		gap: space(30);
 		align-items: flex-start;
 	}
 
@@ -36,8 +38,7 @@
 
 	&__message {
 		flex: 1 1 100%;
-		font-size: var(--wp--preset--font-size--small, 0.875em);
-
+		font-size: fs(sm);
 
 		&:not([hidden]) {
 			animation: mcf-fadein 0.25s ease;
@@ -48,17 +49,15 @@
 		}
 
 		&[data-type="success"] {
-			color: var(--wp--preset--color--success, #2e7d32);
+			color: $c-primary;
 		}
 
 		&[data-type="error"] {
-			color: var(--wp--preset--color--error, #c62828);
+			color: $c-accent;
 		}
 
 		&[data-type="validation"] {
-			color: var(--wp--preset--color--error, #c62828);
+			color: $c-accent;
 		}
 	}
-
-
 }

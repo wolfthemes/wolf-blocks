@@ -1,16 +1,18 @@
+@use "../../tokens" as *;
+
 .wolf-blocks-marquee {
 	overflow: hidden;
 	white-space: nowrap;
 	// border-top: 1px solid var(--wolf-border-color);
 	// border-bottom: 1px solid var(--wolf-border-color);
-	padding: 0.75rem 0;
+	padding: space(3) 0;
 	// Default typography — block typography support overrides via inline style when set.
-	// font-size: var(--wp--preset--font-size--lg);
-	// font-family: var(--wp--preset--font-family--heading);
+	// font-size: fs(lg);
+	// font-family: $f-heading;
 	// font-weight: 600;
 	// letter-spacing: 0.06em;
 	// text-transform: uppercase;
-	// color: var(--wp--preset--color--contrast);
+	// color: $c-ink;
 
 	a {
 		text-decoration: none;
@@ -20,7 +22,7 @@
 
 	&__track {
 		display: inline-flex;
-		gap: var(--wp--preset--spacing--1);
+		gap: space(1);
 
 		&--left {
 			animation: wolf-marquee-left var(--wolf-marquee-duration, 30s) linear infinite;

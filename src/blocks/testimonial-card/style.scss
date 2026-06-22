@@ -1,14 +1,16 @@
+@use "../../tokens" as *;
+
 .wolf-blocks-testimonial-card {
 	border: 1px solid var(--wolf-border-color);
 	border-radius: var(--wolf-radius-lg);
-	padding: var(--wp--preset--spacing--50);
-	background: var(--wp--preset--color--base);
+	padding: space(50);
+	background: $c-base;
 
 	&__rating {
 		display: flex;
 		gap: 2px;
-		margin: 0 0 var(--wp--preset--spacing--3);
-		font-size: var(--wp--preset--font-size--md);
+		margin: 0 0 space(3);
+		font-size: fs(md);
 		line-height: 1;
 	}
 
@@ -18,17 +20,17 @@
 	}
 
 	&__quote p {
-		font-size: var(--wp--preset--font-size--md);
+		font-size: fs(md);
 		line-height: 1.7;
-		color: var(--wp--preset--color--contrast);
-		margin: 0 0 var(--wp--preset--spacing--40);
+		color: $c-ink;
+		margin: 0 0 space(40);
 		font-style: italic;
 	}
 
 	&__author {
 		display: flex;
 		align-items: center;
-		gap: 0.75rem;
+		gap: space(3);
 	}
 
 	&__avatar {
@@ -47,15 +49,15 @@
 
 	&__name {
 		font-weight: 700;
-		font-size: var(--wp--preset--font-size--sm);
-		color: var(--wp--preset--color--contrast);
+		font-size: fs(sm);
+		color: $c-ink;
 		text-decoration: none;
 	}
 
 	&__title {
-		font-size: var(--wp--preset--font-size--xs);
+		font-size: fs(xs);
 		opacity: 0.55;
-		color: var(--wp--preset--color--contrast);
+		color: $c-ink;
 	}
 
 	// Image position: top

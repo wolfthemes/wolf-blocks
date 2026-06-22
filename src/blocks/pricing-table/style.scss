@@ -1,75 +1,77 @@
+@use "../../tokens" as *;
+
 .wolf-blocks-pricing-table {
 	position: relative;
 	border: 1px solid var(--wolf-border-color);
 	border-radius: var(--wolf-radius-lg);
-	padding: var(--wp--preset--spacing--60);
+	padding: space(60);
 	display: flex;
 	flex-direction: column;
-	gap: var(--wp--preset--spacing--40);
-	background: var(--wp--preset--color--base);
+	gap: space(40);
+	background: $c-surface;
 	transition: box-shadow var(--wolf-transition-speed) var(--wolf-transition-ease);
 
 	&.is-featured {
-		border-color: var(--wp--preset--color--primary);
+		border-color: $c-primary;
 		box-shadow: var(--wolf-shadow-card);
 	}
 
 	&__badge {
 		position: absolute;
 		top: -1px;
-		right: 1.5rem;
-		font-size: var(--wp--preset--font-size--xs);
+		right: space(5);
+		font-size: fs(xs);
 		font-weight: 700;
 		letter-spacing: 0.08em;
 		text-transform: uppercase;
-		padding: 3px 10px;
-		background: var(--wp--preset--color--primary);
-		color: var(--wp--preset--color--base);
+		padding: space(1) space(3);
+		background: $c-primary;
+		color: $c-base;
 	}
 
 	&__tagline {
-		font-size: var(--wp--preset--font-size--xs);
+		font-size: fs(xs);
 		text-transform: uppercase;
 		letter-spacing: 0.1em;
 		opacity: 0.55;
 		margin: 0;
-		color: var(--wp--preset--color--contrast);
+		color: $c-ink;
 	}
 
 	&__title {
-		font-size: var(--wp--preset--font-size--lg);
+		font-size: fs(lg);
 		font-weight: 700;
-		margin: 0.25rem 0 0;
-		color: var(--wp--preset--color--contrast);
+		margin: space(1) 0 0;
+		color: $c-ink;
 	}
 
 	&__price {
 		display: flex;
 		align-items: baseline;
-		gap: 0.25rem;
-		padding-bottom: var(--wp--preset--spacing--40);
+		gap: space(1);
+		padding-bottom: space(40);
 		border-bottom: 1px solid var(--wolf-border-color);
 	}
 
 	&__price-struck {
-		font-size: var(--wp--preset--font-size--sm);
+		font-size: fs(sm);
 		opacity: 0.4;
 		text-decoration: line-through;
-		color: var(--wp--preset--color--contrast);
+		color: $c-ink;
 	}
 
 	&__price-main {
-		font-size: var(--wp--preset--font-size--2-xl);
+		font-size: fs("2-xl");
 		font-weight: 800;
-		font-family: var(--wp--preset--font-family--heading);
+		font-family: $f-heading;
 		line-height: 1;
-		color: var(--wp--preset--color--contrast);
+		color: $c-ink;
 	}
 
 	&__period {
-		font-size: var(--wp--preset--font-size--xs);
+		font-size: fs(xs);
 		opacity: 0.5;
-		color: var(--wp--preset--color--contrast);
+		color: $c-ink;
 	}
 
 	&__services {
@@ -78,21 +80,21 @@
 		margin: 0;
 		display: flex;
 		flex-direction: column;
-		gap: 0.5rem;
+		gap: space(2);
 		flex: 1;
 
 		li {
-			font-size: var(--wp--preset--font-size--sm);
-			padding-left: 1.25rem;
+			font-size: fs(sm);
+			padding-left: space(4);
 			position: relative;
-			color: var(--wp--preset--color--contrast);
+			color: $c-ink;
 
 			&::before {
 				content: "✓";
 				position: absolute;
 				left: 0;
 				font-weight: 700;
-				color: var(--wp--preset--color--primary);
+				color: $c-primary;
 			}
 		}
 	}
@@ -100,7 +102,7 @@
 	&__ctas {
 		display: flex;
 		flex-direction: column;
-		gap: 0.5rem;
+		gap: space(2);
 		margin-top: auto;
 	}
 }

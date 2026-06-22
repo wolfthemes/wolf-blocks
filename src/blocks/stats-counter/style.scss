@@ -1,12 +1,14 @@
+@use "../../tokens" as *;
+
 .wolf-blocks-stats-counter {
 	text-align: center;
 	margin-block-start: 0 !important;
 	// Default typography — block typography support overrides via inline style when set.
-	font-size: var(--wp--preset--font-size--3-xl);
-	font-family: var(--wp--preset--font-family--heading);
+	font-size: fs("3-xl");
+	font-family: $f-heading;
 	font-weight: 800;
 	line-height: 1;
-	color: var(--wp--preset--color--contrast);
+	color: $c-ink;
 
 	&__number {
 		display: flex;
@@ -24,13 +26,13 @@
 	}
 
 	&__title {
-		font-size: var(--wp--preset--font-size--sm);
-		font-family: var(--wp--preset--font-family--body, inherit);
+		font-size: fs(sm);
+		font-family: $f-body;
 		font-weight: 400;
 		text-transform: uppercase;
 		letter-spacing: 0.1em;
 		opacity: 0.5;
-		margin-top: 0.5rem;
-		color: var(--wp--preset--color--contrast);
+		margin-top: space(2);
+		color: $c-ink;
 	}
 }

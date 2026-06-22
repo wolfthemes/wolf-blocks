@@ -1,0 +1,79 @@
+// ---- Breakpoints (WP + theme.json wideSize aligned) ---------
+$bp-sm: 600px;
+$bp-md: 782px; // WP mobile/tablet boundary
+$bp-lg: 1024px;
+$bp-xl: 1280px; // theme.json wideSize
+
+@mixin until($bp) {
+
+	@media (max-width: #{$bp - 0.02px}) {
+		@content;
+	}
+}
+
+@mixin from($bp) {
+
+	@media (min-width: $bp) {
+		@content;
+	}
+}
+
+// -----------------------------------------------------------------------------
+// Colour aliases (theme.json palette)
+// -----------------------------------------------------------------------------
+
+// Primary brand colour.
+// Main CTAs, buttons, active states, important links.
+$c-primary: var(--wp--preset--color--primary);
+
+// Lighter variation of the primary colour.
+// Hover states, subtle highlights, secondary CTA variations.
+$c-primary-light: var(--wp--preset--color--primary-light);
+
+// Secondary brand colour.
+// Large dark surfaces: hero, footer, dark sections, overlays.
+$c-secondary: var(--wp--preset--color--secondary);
+
+// Accent colour.
+// Small attention grabbers only: badges, icons, highlights,
+// decorative elements, underlines, status indicators.
+// Avoid using for large backgrounds.
+$c-accent: var(--wp--preset--color--accent);
+
+// Main site background.
+// Default page background colour.
+$c-base: var(--wp--preset--color--base);
+
+// Alternative surface background.
+// Cards, testimonials, FAQ sections, alternating page sections.
+$c-surface: var(--wp--preset--color--base-2);
+
+// Primary text colour.
+// Headings, body copy, icons.
+$c-ink: var(--wp--preset--color--contrast);
+
+// Secondary text colour.
+// Metadata, captions, supporting content.
+$c-muted: var(--wp--preset--color--contrast-2);
+
+// Borders, dividers and input outlines.
+$c-border: var(--wp--preset--color--border);
+
+// Alt border for dark sections (light hairline).
+$c-border-alt: var(--wp--preset--color--border-alt);
+
+// ---- Type ---------------------------------------------------
+$f-heading: var(--wp--preset--font-family--heading);
+$f-body: var(--wp--preset--font-family--body);
+
+// ---- Spacing presets ----------------------------------------
+@function space($step) {
+
+	@return var(--wp--preset--spacing--#{$step});
+}
+
+// ---- Font-size presets --------------------------------------
+@function fs($slug) {
+
+	@return var(--wp--preset--font-size--#{$slug});
+}

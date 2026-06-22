@@ -1,24 +1,26 @@
+@use "../../tokens" as *;
+
 .wolf-blocks-comparison-table {
 
 	&__title {
 		text-align: center;
-		margin-bottom: var(--wp--preset--spacing--5);
+		margin-bottom: space(5);
 	}
 
 	&__table {
 		width: 100%;
 		border-collapse: collapse;
-		font-size: var(--wp--preset--font-size--sm);
+		font-size: fs(sm);
 
 		th,
 		td {
-			padding: var(--wp--preset--spacing--3);
+			padding: space(3);
 			border-bottom: var(--wolf-border-width) solid var(--wolf-border-color);
 		}
 
 		th {
 			text-align: center;
-			font-size: var(--wp--preset--font-size--xs);
+			font-size: fs(xs);
 			text-transform: uppercase;
 			letter-spacing: 0.06em;
 
@@ -34,7 +36,7 @@
 
 	&__cell {
 		text-align: center;
-		font-size: var(--wp--preset--font-size--md);
+		font-size: fs(md);
 
 		&--competitor {
 			opacity: 0.5;
@@ -44,7 +46,7 @@
 	tr.is-winning-row {
 
 		.wolf-blocks-comparison-table__cell--us {
-			color: var(--wp--preset--color--primary);
+			color: $c-primary;
 			font-weight: 700;
 		}
 	}

@@ -1,6 +1,8 @@
+@use "../../tokens" as *;
+
 .wolf-blocks-feature-grid {
 	display: grid;
-	gap: var(--wp--preset--spacing--6);
+	gap: space(6);
 
 	&--cols-2 {
 		grid-template-columns: repeat(2, 1fr);
@@ -14,7 +16,7 @@
 		grid-template-columns: repeat(4, 1fr);
 	}
 
-	@media (max-width: 768px) {
+	@include until($bp-md) {
 		/* stylelint-disable-next-line declaration-no-important */
 		grid-template-columns: 1fr !important;
 	}
@@ -23,12 +25,12 @@
 .wolf-blocks-feature-grid-item {
 	display: flex;
 	flex-direction: column;
-	gap: var(--wp--preset--spacing--2);
+	gap: space(2);
 
 	&__icon {
-		width: 2rem;
-		height: 2rem;
-		color: var(--wp--preset--color--primary);
+		width: space(6);
+		height: space(6);
+		color: $c-primary;
 
 		svg {
 			width: 100%;
@@ -37,13 +39,13 @@
 	}
 
 	&__title {
-		font-size: var(--wp--preset--font-size--md);
+		font-size: fs(md);
 		font-weight: 700;
 		margin: 0;
 	}
 
 	&__description {
-		font-size: var(--wp--preset--font-size--sm);
+		font-size: fs(sm);
 		opacity: 0.7;
 		margin: 0;
 	}
