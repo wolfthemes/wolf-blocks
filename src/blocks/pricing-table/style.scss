@@ -7,7 +7,7 @@
 	padding: space(60);
 	display: flex;
 	flex-direction: column;
-	gap: space(40);
+	gap: space(60);
 	background: $c-surface;
 	transition: box-shadow var(--wolf-transition-speed) var(--wolf-transition-ease);
 
@@ -20,29 +20,9 @@
 		position: absolute;
 		top: -1px;
 		right: space(5);
-		font-size: fs(xs);
-		font-weight: 700;
-		letter-spacing: 0.08em;
-		text-transform: uppercase;
 		padding: space(1) space(3);
 		background: $c-primary;
 		color: $c-base;
-	}
-
-	&__tagline {
-		font-size: fs(xs);
-		text-transform: uppercase;
-		letter-spacing: 0.1em;
-		opacity: 0.55;
-		margin: 0;
-		color: $c-ink;
-	}
-
-	&__title {
-		font-size: fs(lg);
-		font-weight: 700;
-		margin: space(1) 0 0;
-		color: $c-ink;
 	}
 
 	&__price {
@@ -54,24 +34,12 @@
 	}
 
 	&__price-struck {
-		font-size: fs(sm);
-		opacity: 0.4;
 		text-decoration: line-through;
-		color: $c-ink;
 	}
 
 	&__price-main {
+        font-family: var(--wp--preset--font-family--heading);
 		font-size: fs("2-xl");
-		font-weight: 800;
-		font-family: $f-heading;
-		line-height: 1;
-		color: $c-ink;
-	}
-
-	&__period {
-		font-size: fs(xs);
-		opacity: 0.5;
-		color: $c-ink;
 	}
 
 	&__services {
@@ -84,10 +52,8 @@
 		flex: 1;
 
 		li {
-			font-size: fs(sm);
-			padding-left: space(4);
+			padding-left: space(5);
 			position: relative;
-			color: $c-ink;
 
 			&::before {
 				content: "✓";
