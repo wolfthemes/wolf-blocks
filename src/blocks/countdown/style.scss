@@ -6,8 +6,8 @@
 	gap: space(3);
 	font-size: fs(sm); /* default; overridden by typography support */
 	padding: space(2) space(3);
-	border: var(--wolf-border-width) solid var(--wolf-border-color);
-	border-radius: var(--wolf-radius-md);
+	// border: var(--wolf-border-width) solid var(--wolf-border-color);
+	// border-radius: var(--wolf-radius-md);
 
 	&__label {
 		text-transform: uppercase;

@@ -9,11 +9,11 @@
 	flex-direction: column;
 	gap: space(60);
 	background: $c-surface;
-	transition: box-shadow var(--wolf-transition-speed) var(--wolf-transition-ease);
+	// transition: box-shadow var(--wolf-transition-speed) var(--wolf-transition-ease);
 
 	&.is-featured {
 		border-color: $c-primary;
-		box-shadow: var(--wolf-shadow-card);
+		// box-shadow: var(--wolf-shadow-card);
 	}
 
 	&__badge {
@@ -38,7 +38,7 @@
 	}
 
 	&__price-main {
-        font-family: var(--wp--preset--font-family--heading);
+        font-family: $f-heading;
 		font-size: fs("2-xl");
 	}
 
