@@ -9,6 +9,11 @@ function showExpired(el, text) {
 	}
 }
 
+function reveal(el) {
+	el.classList.remove('is-loading');
+	el.classList.add('is-ready');
+}
+
 document.querySelectorAll('.wolf-blocks-countdown').forEach(el => {
 	const targetRaw = el.dataset.target;
 	const expiredText = el.dataset.expiredText || '';
@@ -17,6 +22,7 @@ document.querySelectorAll('.wolf-blocks-countdown').forEach(el => {
 
 	if (!targetRaw) {
 		showExpired(el, expiredText);
+		reveal(el);
 		return;
 	}
 
@@ -24,6 +30,7 @@ document.querySelectorAll('.wolf-blocks-countdown').forEach(el => {
 
 	if (isNaN(target) || target <= Date.now()) {
 		showExpired(el, expiredText);
+		reveal(el);
 		return;
 	}
 
@@ -32,12 +39,12 @@ document.querySelectorAll('.wolf-blocks-countdown').forEach(el => {
 	const minutesUnit = el.querySelector('[data-unit="minutes"] strong');
 	const secondsUnit = el.querySelector('[data-unit="seconds"] strong');
 
-	const interval = setInterval(() => {
+	const update = () => {
 		const remaining = target - Date.now();
 
 		if (remaining <= 0) {
-			clearInterval(interval);
 			showExpired(el, expiredText);
+			reveal(el);
 			return;
 		}
 
@@ -61,5 +68,21 @@ document.querySelectorAll('.wolf-blocks-countdown').forEach(el => {
 		if (showSeconds && secondsUnit) {
 			secondsUnit.textContent = pad(seconds);
 		}
+		reveal(el);
+	};
+
+	update();
+
+	const interval = setInterval(() => {
+		const remaining = target - Date.now();
+
+		if (remaining <= 0) {
+			clearInterval(interval);
+			showExpired(el, expiredText);
+			reveal(el);
+			return;
+		}
+
+		update();
 	}, 1000);
 });

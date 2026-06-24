@@ -53,7 +53,7 @@ class Countdown_Block {
 
 		$wrapper_attrs = get_block_wrapper_attributes(
 			array(
-				'class'              => 'wolf-blocks-countdown',
+				'class'              => 'wolf-blocks-countdown is-loading',
 				'data-target'        => esc_attr( $target_date ),
 				'data-expired-text'  => esc_attr( $expired_text ),
 				'data-show-days'     => $show_days ? 'true' : 'false',

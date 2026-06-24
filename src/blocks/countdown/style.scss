@@ -1,6 +1,7 @@
 @use "../../tokens" as *;
 
 .wolf-blocks-countdown {
+    width: 100%;
 	display: inline-flex;
 	align-items: center;
 	gap: space(3);
@@ -8,6 +9,15 @@
 	padding: space(2) space(3);
 	// border: var(--wolf-border-width) solid var(--wolf-border-color);
 	// border-radius: var(--wolf-radius-md);
+
+	&.is-loading {
+		opacity: 0;
+	}
+
+	&.is-ready {
+		opacity: 1;
+		transition: opacity 0.25s ease;
+	}
 
 	&__label {
 		text-transform: uppercase;
@@ -19,6 +29,8 @@
 	&__units {
 		display: flex;
 		gap: space(2);
+        width: 100%;
+        justify-content: space-evenly;
 	}
 
 	&__unit {
