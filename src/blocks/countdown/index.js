@@ -14,7 +14,7 @@ import save from './save';
 import './style.scss';
 
 function Edit({ attributes, setAttributes }) {
-	const { source, targetDate, label, expiredText, showDays, showSeconds } =
+	const { source, targetDate, expiredText, showDays, showSeconds } =
 		attributes;
 
 	const blockProps = useBlockProps({
@@ -55,11 +55,6 @@ function Edit({ attributes, setAttributes }) {
 				</PanelBody>
 				<PanelBody title={__('Display', 'wolf-blocks')}>
 					<TextControl
-						label={__('Label', 'wolf-blocks')}
-						value={label}
-						onChange={val => setAttributes({ label: val })}
-					/>
-					<TextControl
 						label={__('Expired Text', 'wolf-blocks')}
 						value={expiredText}
 						onChange={val => setAttributes({ expiredText: val })}
@@ -85,7 +80,6 @@ function Edit({ attributes, setAttributes }) {
 						)}
 					</Notice>
 				)}
-				<span className='wolf-blocks-countdown__label'>{label}</span>
 				<div className='wolf-blocks-countdown__units'>
 					{showDays && (
 						<div

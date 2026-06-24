@@ -29,7 +29,6 @@ class Countdown_Block {
 	 */
 	public function render( array $attributes, string $content, \WP_Block $block ): string { // phpcs:ignore Generic.CodeAnalysis.UnusedFunctionParameter.FoundAfterLastUsed,VariableAnalysis.CodeAnalysis.VariableAnalysis.UnusedVariable
 		$source       = sanitize_key( $attributes['source'] ?? 'manual' );
-		$label        = sanitize_text_field( $attributes['label'] ?? 'Offer ends in' );
 		$expired_text = sanitize_text_field( $attributes['expiredText'] ?? 'Offer has ended' );
 		$show_days    = (bool) ( $attributes['showDays'] ?? true );
 		$show_seconds = (bool) ( $attributes['showSeconds'] ?? true );
@@ -64,7 +63,6 @@ class Countdown_Block {
 		ob_start();
 		?>
 		<div <?php echo $wrapper_attrs; // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped -- get_block_wrapper_attributes() is a trusted WP core function. ?> >
-			<span class="wolf-blocks-countdown__label"><?php echo esc_html( $label ); ?></span>
 			<div class="wolf-blocks-countdown__units">
 				<?php if ( $show_days ) : ?>
 				<div class="wolf-blocks-countdown__unit" data-unit="days">

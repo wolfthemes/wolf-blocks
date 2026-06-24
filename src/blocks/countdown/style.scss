@@ -19,13 +19,6 @@
 		transition: opacity 0.25s ease;
 	}
 
-	&__label {
-		text-transform: uppercase;
-		letter-spacing: 0.06em;
-		font-weight: 600;
-		opacity: 0.7;
-	}
-
 	&__units {
 		display: flex;
 		gap: space(2);

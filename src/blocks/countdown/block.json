@@ -20,10 +20,6 @@
 			"type": "string",
 			"default": ""
 		},
-		"label": {
-			"type": "string",
-			"default": "Offer ends in"
-		},
 		"expiredText": {
 			"type": "string",
 			"default": "Offer has ended"
