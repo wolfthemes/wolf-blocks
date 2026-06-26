@@ -1,0 +1,63 @@
+@use "../tokens" as *;
+
+.wolf-blocks-subscribe-form {
+
+	&__form {
+		display: flex;
+		flex-wrap: wrap;
+		gap: space(30);
+		align-items: flex-start;
+	}
+
+	&__field {
+		flex: 1 1 200px;
+
+		input {
+			display: block;
+			width: 100%;
+			box-sizing: border-box;
+		}
+	}
+
+	&__action {
+		flex: 0 0 auto;
+	}
+
+	@keyframes wbsf-fadein {
+
+		from {
+			opacity: 0;
+			transform: translateY(-4px);
+		}
+
+		to {
+			opacity: 1;
+			transform: translateY(0);
+		}
+	}
+
+	&__message {
+		flex: 1 1 100%;
+		font-size: fs(sm);
+
+		&:not([hidden]) {
+			animation: wbsf-fadein 0.25s ease;
+		}
+
+		&[hidden] {
+			display: none;
+		}
+
+		&[data-type="success"] {
+			color: $c-primary;
+		}
+
+		&[data-type="error"] {
+			color: $c-accent;
+		}
+
+		&[data-type="validation"] {
+			color: $c-accent;
+		}
+	}
+}

@@ -28,7 +28,7 @@ class Block_Loader {
 			'feature-grid-item',
 		);
 
-		$this->register_mailchimp_form();
+		$this->register_subscription_forms();
 
 		foreach ( $blocks as $block ) {
 			$path = WOLF_BLOCKS_DIR . '/build/blocks/' . $block;
@@ -40,17 +40,24 @@ class Block_Loader {
 		$this->register_countdown();
 	}
 
-	private function register_mailchimp_form(): void {
-		$path = WOLF_BLOCKS_DIR . '/build/blocks/mailchimp-form';
-		if ( ! file_exists( $path . '/block.json' ) ) {
-			return;
+	/**
+	 * Registers one subscription block per provider, each bound to its own
+	 * provider-aware render callback. The block folder name matches the
+	 * provider slug (mailchimp-form, brevo-form).
+	 */
+	private function register_subscription_forms(): void {
+		foreach ( Subscription_Providers::all() as $provider ) {
+			$path = WOLF_BLOCKS_DIR . '/build/blocks/' . $provider->slug() . '-form';
+			if ( ! file_exists( $path . '/block.json' ) ) {
+				continue;
+			}
+			register_block_type(
+				$path,
+				array(
+					'render_callback' => array( new Subscription_Block( $provider ), 'render' ),
+				)
+			);
 		}
-		register_block_type(
-			$path,
-			array(
-				'render_callback' => array( new Mailchimp_Block(), 'render' ),
-			)
-		);
 	}
 
 	private function register_countdown(): void {

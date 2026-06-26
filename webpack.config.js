@@ -20,6 +20,8 @@ module.exports = {
 			'./src/blocks/feature-grid-item/index.js',
 		'blocks/mailchimp-form/index': './src/blocks/mailchimp-form/index.js',
 		'blocks/mailchimp-form/view': './src/blocks/mailchimp-form/view.js',
+		'blocks/brevo-form/index': './src/blocks/brevo-form/index.js',
+		'blocks/brevo-form/view': './src/blocks/brevo-form/view.js',
 	},
 	output: {
 		...defaultConfig.output,
