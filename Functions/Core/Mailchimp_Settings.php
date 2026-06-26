@@ -51,7 +51,7 @@ class Mailchimp_Settings {
 
 		add_settings_section(
 			'wolf_blocks_mailchimp_section',
-			__( 'Mailchimp API', 'wolf-blocks' ),
+			__( 'Brevo API', 'wolf-blocks' ),
 			'__return_false',
 			self::PAGE_SLUG
 		);
@@ -82,9 +82,9 @@ class Mailchimp_Settings {
 		<p class="description">
 			<?php
 			printf(
-				/* translators: %s: link to Mailchimp API keys page */
-				esc_html__( 'Find your API key in %s.', 'wolf-blocks' ),
-				'<a href="https://mailchimp.com/help/about-api-keys/" target="_blank" rel="noopener noreferrer">Mailchimp → Account → Extras → API keys</a>'
+				/* translators: %s: link to Brevo API keys page */
+				esc_html__( 'Find your API key in %s. Set the form\'s numeric Brevo list ID on the block itself.', 'wolf-blocks' ),
+				'<a href="https://app.brevo.com/settings/keys/api" target="_blank" rel="noopener noreferrer">Brevo &rarr; Settings &rarr; SMTP &amp; API &rarr; API Keys</a>'
 			);
 			?>
 		</p>

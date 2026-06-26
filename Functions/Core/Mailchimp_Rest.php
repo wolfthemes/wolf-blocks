@@ -1,13 +1,16 @@
 <?php
 /**
- * REST endpoint for Mailchimp subscription.
+ * REST endpoint for newsletter subscription (Brevo).
  *
  * POST /wp-json/wolf-blocks/v1/subscribe
  * Body: { "list_id": "…", "email": "…", "name": "…" (optional) }
  * Header: X-WP-Nonce: <wp_rest nonce>
  *
  * The API key is never sent from the client — it is retrieved from wp_options
- * where Mailchimp_Block::render() stored it at page-render time.
+ * where Mailchimp_Block::get_api_key() reads it server-side. As of the Brevo
+ * switch (2026-06) the stored key is a Brevo API key and `list_id` is a Brevo
+ * numeric list ID. Class/option names are kept for backward compatibility; an
+ * ESP-neutral rename is a separate post-launch cleanup.
  *
  * @package WolfBlocks
  * @subpackage Core
@@ -80,48 +83,47 @@ class Mailchimp_Rest {
 			);
 		}
 
-		// Mailchimp datacenter is the suffix after the last hyphen in the API key.
-		$dc = substr( $api_key, strrpos( $api_key, '-' ) + 1 );
-		if ( ! $dc ) {
+		// Brevo list IDs are numeric; the block stores the attribute as a string.
+		$brevo_list_id = (int) $list_id;
+		if ( $brevo_list_id <= 0 ) {
 			return new \WP_REST_Response(
 				array(
 					'success' => false,
-					'message' => __( 'Invalid API key format.', 'wolf-blocks' ),
+					'message' => __( 'Invalid list configuration.', 'wolf-blocks' ),
 				),
 				400
 			);
 		}
 
-		$subscriber_hash = md5( strtolower( $email ) );
-		$endpoint        = "https://{$dc}.api.mailchimp.com/3.0/lists/{$list_id}/members/{$subscriber_hash}";
-
-		$merge_fields = array();
+		$attributes = array();
 		if ( $name ) {
-			// Split on first space for FNAME / LNAME if possible.
-			$parts                 = explode( ' ', $name, 2 );
-			$merge_fields['FNAME'] = $parts[0];
+			// Split on first space for FIRSTNAME / LASTNAME if possible.
+			$parts                     = explode( ' ', $name, 2 );
+			$attributes['FIRSTNAME']   = $parts[0];
 			if ( isset( $parts[1] ) ) {
-				$merge_fields['LNAME'] = $parts[1];
+				$attributes['LASTNAME'] = $parts[1];
 			}
 		}
 
 		$body = array(
-			'email_address' => $email,
-			'status_if_new' => 'subscribed',
-			'status'        => 'subscribed',
+			'email'         => $email,
+			'listIds'       => array( $brevo_list_id ),
+			// Idempotent: re-submitting an existing contact updates it (HTTP 204)
+			// instead of erroring, so repeat sign-ups are not surfaced as failures.
+			'updateEnabled' => true,
 		);
 
-		if ( ! empty( $merge_fields ) ) {
-			$body['merge_fields'] = $merge_fields;
+		if ( ! empty( $attributes ) ) {
+			$body['attributes'] = $attributes;
 		}
 
-		$response = wp_remote_request(
-			$endpoint,
+		$response = wp_remote_post(
+			'https://api.brevo.com/v3/contacts',
 			array(
-				'method'  => 'PUT',
 				'headers' => array(
-					'Authorization' => 'Basic ' . base64_encode( 'anystring:' . $api_key ), // phpcs:ignore WordPress.PHP.DiscouragedPHPFunctions.obfuscation_base64_encode
-					'Content-Type'  => 'application/json',
+					'api-key'      => $api_key,
+					'accept'       => 'application/json',
+					'Content-Type' => 'application/json',
 				),
 				'body'    => wp_json_encode( $body ),
 				'timeout' => 10, // phpcs:ignore WordPressVIPMinimum.Performance.RemoteRequestTimeout.timeout_timeout
@@ -132,28 +134,26 @@ class Mailchimp_Rest {
 			return new \WP_REST_Response(
 				array(
 					'success' => false,
-					'message' => __( 'Could not reach Mailchimp. Please try again later.', 'wolf-blocks' ),
+					'message' => __( 'Could not reach the newsletter service. Please try again later.', 'wolf-blocks' ),
 				),
 				502
 			);
 		}
 
 		$status = wp_remote_retrieve_response_code( $response );
-		$data   = json_decode( wp_remote_retrieve_body( $response ), true );
 
-		// 200 = updated existing member, 400 with "Member Exists" is also handled by PUT.
-		if ( 200 === $status ) {
+		// 201 = contact created, 204 = existing contact updated (updateEnabled).
+		if ( 201 === $status || 204 === $status ) {
 			return new \WP_REST_Response( array( 'success' => true ), 200 );
 		}
 
 		// Surface a meaningful error without leaking internal details.
-		$mc_title  = $data['title'] ?? '';
-		$mc_detail = $data['detail'] ?? '';
+		// Brevo returns { "code": "...", "message": "..." } on failure.
+		$data        = json_decode( wp_remote_retrieve_body( $response ), true );
+		$brevo_code  = is_array( $data ) ? ( $data['code'] ?? '' ) : '';
 
-		if ( str_contains( strtolower( $mc_title ), 'fake' ) || str_contains( strtolower( $mc_detail ), 'fake' ) ) {
+		if ( 'invalid_parameter' === $brevo_code ) {
 			$message = __( 'Please enter a valid email address.', 'wolf-blocks' );
-		} elseif ( str_contains( strtolower( $mc_title ), 'compliance' ) ) {
-			$message = __( 'This email address cannot be subscribed at this time.', 'wolf-blocks' );
 		} else {
 			$message = __( 'Subscription failed. Please try again.', 'wolf-blocks' );
 		}

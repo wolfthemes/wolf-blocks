@@ -44,13 +44,13 @@ function Edit({ attributes, setAttributes }) {
 		<>
 			<InspectorControls>
 				<PanelBody
-					title={__('Mailchimp Settings', 'wolf-blocks')}
+					title={__('Newsletter Settings', 'wolf-blocks')}
 					initialOpen={missingListId}
 				>
 					<TextControl
-						label={__('Audience List ID', 'wolf-blocks')}
+						label={__('Brevo List ID', 'wolf-blocks')}
 						help={__(
-							'Found in Mailchimp → Audience → Settings → Audience name and defaults.',
+							'The numeric list ID from Brevo → Contacts → Lists.',
 							'wolf-blocks'
 						)}
 						value={listId}
@@ -58,7 +58,7 @@ function Edit({ attributes, setAttributes }) {
 					/>
 					{missingApiKey && (
 						<Notice status='warning' isDismissible={false}>
-							{__('No Mailchimp API key found.', 'wolf-blocks')}
+							{__('No Brevo API key found.', 'wolf-blocks')}
 							<ExternalLink href='/wp-admin/options-general.php?page=wolf-blocks-mailchimp'>
 								{__('Configure it here.', 'wolf-blocks')}
 							</ExternalLink>
@@ -139,7 +139,7 @@ function Edit({ attributes, setAttributes }) {
 				{missingListId && (
 					<Notice status='warning' isDismissible={false}>
 						{__(
-							'Add your Mailchimp Audience List ID in the block settings.',
+							'Add your Brevo List ID in the block settings.',
 							'wolf-blocks'
 						)}
 					</Notice>
