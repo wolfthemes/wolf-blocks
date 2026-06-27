@@ -1,4 +1,5 @@
 import { __ } from '@wordpress/i18n';
+import './style.scss';
 import { registerSubscribeBlock } from '../../shared/subscribe-block';
 import metadata from './block.json';
 

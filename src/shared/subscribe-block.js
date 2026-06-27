@@ -18,7 +18,6 @@ import {
 } from '@wordpress/components';
 import { useSelect } from '@wordpress/data';
 import { store as coreStore } from '@wordpress/core-data';
-import './subscribe-form.scss';
 
 const SETTINGS_URL =
 	'/wp-admin/options-general.php?page=wolf-blocks-newsletter';
