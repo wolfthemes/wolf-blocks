@@ -5,6 +5,10 @@ build/
 node_modules/
 vendor/
 
+# Local AI tooling
+.claude/
+graphify-out/
+
 # IDE / OS
 .vscode/
 .idea/
