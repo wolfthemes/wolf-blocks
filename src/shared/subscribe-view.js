@@ -49,7 +49,9 @@ export function initSubscribeForms() {
 
 		function setFieldError(input, message) {
 			input.setAttribute('aria-invalid', 'true');
-			input.setAttribute('aria-describedby', messageEl.id || 'wbsf-msg');
+			if (messageEl.id) {
+				input.setAttribute('aria-describedby', messageEl.id);
+			}
 			showMessage(message, 'validation');
 			input.focus();
 		}
@@ -113,7 +115,7 @@ export function initSubscribeForms() {
 
 				if (res.ok && data.success) {
 					form.reset();
-					showMessage(successMessage, 'success');
+					showMessage(data.message || successMessage, 'success');
 				} else {
 					showMessage(data.message || errorMessage, 'error');
 				}

@@ -32,14 +32,14 @@ class Subscription_Block {
 		}
 
 		$show_name             = ! empty( $attributes['showName'] );
-		$button_label          = sanitize_text_field( $attributes['buttonLabel'] ?? __( 'Subscribe', 'wolf-blocks' ) );
-		$name_placeholder      = sanitize_text_field( $attributes['namePlaceholder'] ?? __( 'Your name', 'wolf-blocks' ) );
-		$email_placeholder     = sanitize_text_field( $attributes['emailPlaceholder'] ?? __( 'Your email', 'wolf-blocks' ) );
-		$empty_email_message   = sanitize_text_field( $attributes['emptyEmailMessage'] ?? __( 'Please enter your email address.', 'wolf-blocks' ) );
-		$invalid_email_message = sanitize_text_field( $attributes['invalidEmailMessage'] ?? __( 'Please enter a valid email address.', 'wolf-blocks' ) );
-		$empty_name_message    = sanitize_text_field( $attributes['emptyNameMessage'] ?? __( 'Please enter your name.', 'wolf-blocks' ) );
-		$success_message       = sanitize_text_field( $attributes['successMessage'] ?? __( 'Thanks for subscribing!', 'wolf-blocks' ) );
-		$error_message         = sanitize_text_field( $attributes['errorMessage'] ?? __( 'Something went wrong. Please try again.', 'wolf-blocks' ) );
+		$button_label          = $this->attribute_text( $attributes, 'buttonLabel', __( 'Subscribe', 'wolf-blocks' ) );
+		$name_placeholder      = $this->attribute_text( $attributes, 'namePlaceholder', __( 'Your name', 'wolf-blocks' ) );
+		$email_placeholder     = $this->attribute_text( $attributes, 'emailPlaceholder', __( 'Your email', 'wolf-blocks' ) );
+		$empty_email_message   = $this->attribute_text( $attributes, 'emptyEmailMessage', __( 'Please enter your email address.', 'wolf-blocks' ) );
+		$invalid_email_message = $this->attribute_text( $attributes, 'invalidEmailMessage', __( 'Please enter a valid email address.', 'wolf-blocks' ) );
+		$empty_name_message    = $this->attribute_text( $attributes, 'emptyNameMessage', __( 'Please enter your name.', 'wolf-blocks' ) );
+		$success_message       = $this->attribute_text( $attributes, 'successMessage', __( 'Thanks for subscribing!', 'wolf-blocks' ) );
+		$error_message         = $this->attribute_text( $attributes, 'errorMessage', __( 'Something went wrong. Please try again.', 'wolf-blocks' ) );
 
 		$uid      = wp_unique_id( 'wbsf-' );
 		$rest_url = esc_url( rest_url( 'wolf-blocks/v1/subscribe' ) );
@@ -94,10 +94,21 @@ class Subscription_Block {
 				<div class="wolf-blocks-subscribe-form__action">
 					<button type="submit" class="wp-element-button"><?php echo esc_html( $button_label ); ?></button>
 				</div>
-				<div class="wolf-blocks-subscribe-form__message" aria-live="polite" hidden></div>
+				<div
+					id="<?php echo esc_attr( $uid ); ?>-message"
+					class="wolf-blocks-subscribe-form__message"
+					role="status"
+					aria-live="polite"
+					hidden
+				></div>
 			</form>
 		</div>
 		<?php
 		return ob_get_clean();
+	}
+
+	private function attribute_text( array $attributes, string $key, string $fallback ): string {
+		$value = sanitize_text_field( $attributes[ $key ] ?? '' );
+		return '' === $value ? $fallback : $value;
 	}
 }

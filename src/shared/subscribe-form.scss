@@ -38,6 +38,10 @@
 
 	&__message {
 		flex: 1 1 100%;
+		box-sizing: border-box;
+		padding: space(20);
+		border: 1px solid currentcolor;
+		border-radius: var(--wolf-radius-sm);
 		font-size: fs(sm);
 
 		&:not([hidden]) {
