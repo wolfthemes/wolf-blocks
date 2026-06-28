@@ -117,6 +117,8 @@ class Newsletter_Settings {
 	}
 
 	/**
+	 * Render the API key input field for a newsletter provider.
+	 *
 	 * @param array{option:string,help:string} $args Field arguments.
 	 */
 	public function render_api_key_field( array $args ): void {

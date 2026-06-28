@@ -24,7 +24,7 @@ interface Subscription_Provider {
 	 */
 	public function slug(): string;
 
-	/** wp_options key under which this provider's API key is stored. */
+	/** WP options key under which this provider's API key is stored. */
 	public function api_key_option(): string;
 
 	/** The stored API key, or an empty string when unset. */
