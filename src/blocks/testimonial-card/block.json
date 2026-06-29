@@ -22,7 +22,7 @@
 			"type": "number",
 			"default": 0
 		},
-		"name": {
+		"authorName": {
 			"type": "string",
 			"default": ""
 		},

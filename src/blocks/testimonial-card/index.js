@@ -36,7 +36,7 @@ function Edit({ attributes, setAttributes }) {
 		content,
 		avatarUrl,
 		avatarId,
-		name,
+		authorName,
 		authorTitle,
 		link,
 		imagePosition,
@@ -67,8 +67,8 @@ function Edit({ attributes, setAttributes }) {
 					/>
 					<TextControl
 						label={__('Author Name', 'wolf-blocks')}
-						value={name}
-						onChange={val => setAttributes({ name: val })}
+						value={authorName}
+						onChange={val => setAttributes({ authorName: val })}
 					/>
 					<TextControl
 						label={__('Author Title', 'wolf-blocks')}
@@ -189,7 +189,7 @@ function Edit({ attributes, setAttributes }) {
 						<img
 							className='wolf-blocks-testimonial-card__avatar'
 							src={avatarUrl}
-							alt={name}
+							alt={authorName}
 							width={48}
 							height={48}
 						/>
@@ -200,11 +200,11 @@ function Edit({ attributes, setAttributes }) {
 								href={link}
 								className='wolf-blocks-testimonial-card__name'
 							>
-								{name || __('Author Name', 'wolf-blocks')}
+								{authorName || __('Author Name', 'wolf-blocks')}
 							</a>
 						) : (
 							<span className='wolf-blocks-testimonial-card__name'>
-								{name || __('Author Name', 'wolf-blocks')}
+								{authorName || __('Author Name', 'wolf-blocks')}
 							</span>
 						)}
 						{authorTitle && (

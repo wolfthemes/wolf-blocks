@@ -19,7 +19,7 @@ export default function save({ attributes }) {
 	const {
 		content,
 		avatarUrl,
-		name,
+		authorName,
 		authorTitle,
 		link,
 		imagePosition,
@@ -42,7 +42,7 @@ export default function save({ attributes }) {
 					<img
 						className='wolf-blocks-testimonial-card__avatar'
 						src={avatarUrl}
-						alt={name}
+						alt={authorName}
 						width={48}
 						height={48}
 					/>
@@ -53,11 +53,11 @@ export default function save({ attributes }) {
 							href={link}
 							className='wolf-blocks-testimonial-card__name'
 						>
-							{name}
+							{authorName}
 						</a>
 					) : (
 						<span className='wolf-blocks-testimonial-card__name'>
-							{name}
+							{authorName}
 						</span>
 					)}
 					{authorTitle && (
