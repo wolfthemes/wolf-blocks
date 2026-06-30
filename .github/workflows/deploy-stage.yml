@@ -96,3 +96,4 @@ jobs:
             rm -rf /tmp/wolf-blocks-build
             cd /home/customer/www/staging20.wolfthemes.com/public_html
             wp cache flush
+            curl -D - -sSX PURGE http://127.0.0.1/* -H "Host: staging20.wolfthemes.com"
