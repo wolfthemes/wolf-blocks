@@ -7,6 +7,7 @@ vendor/
 
 # Local AI tooling
 .claude/
+.codex/
 graphify-out/
 
 # IDE / OS
@@ -15,6 +16,9 @@ graphify-out/
 Thumbs.db
 Desktop.ini
 .DS_Store
+
+# Folder config file
+Desktop.ini
 
 # Misc
 *.zip
