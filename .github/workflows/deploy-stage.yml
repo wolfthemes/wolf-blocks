@@ -88,7 +88,11 @@ jobs:
           key: ${{ secrets.SSH_PRIVATE_KEY }}
           port: ${{ secrets.SSH_PORT }}
           script: |
+            set -euo pipefail
             cd /home/customer/www/staging20.wolfthemes.com/public_html/wp-content/plugins/wolf-blocks
-            git pull origin stage
+            git fetch origin stage
+            git checkout -B stage origin/stage
             rsync -a --delete /tmp/wolf-blocks-build/ build/
             rm -rf /tmp/wolf-blocks-build
+            cd /home/customer/www/staging20.wolfthemes.com/public_html
+            wp cache flush
