@@ -9,6 +9,9 @@
 
 namespace Wolf_Blocks\Core;
 
+use Wolf_Blocks\Newsletter\Newsletter_Settings;
+use Wolf_Blocks\Newsletter\Subscription_Rest;
+
 defined( 'ABSPATH' ) || exit;
 
 class Plugin {

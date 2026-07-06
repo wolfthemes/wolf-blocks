@@ -13,7 +13,7 @@
  * @since 1.0.0
  */
 
-namespace Wolf_Blocks\Core;
+namespace Wolf_Blocks\Blocks;
 
 defined( 'ABSPATH' ) || exit;
 

@@ -9,6 +9,10 @@
 
 namespace Wolf_Blocks\Core;
 
+use Wolf_Blocks\Blocks\Countdown_Block;
+use Wolf_Blocks\Blocks\Subscription_Block;
+use Wolf_Blocks\Newsletter\Subscription_Providers;
+
 defined( 'ABSPATH' ) || exit;
 
 class Block_Loader {

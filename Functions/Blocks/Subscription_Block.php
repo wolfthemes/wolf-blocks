@@ -12,7 +12,9 @@
  * @since 1.1.0
  */
 
-namespace Wolf_Blocks\Core;
+namespace Wolf_Blocks\Blocks;
+
+use Wolf_Blocks\Newsletter\Subscription_Provider;
 
 defined( 'ABSPATH' ) || exit;
 

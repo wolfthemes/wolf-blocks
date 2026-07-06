@@ -11,7 +11,7 @@
  * @since 1.1.0
  */
 
-namespace Wolf_Blocks\Core;
+namespace Wolf_Blocks\Newsletter;
 
 defined( 'ABSPATH' ) || exit;
 
