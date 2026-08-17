@@ -99,4 +99,3 @@ jobs:
             rm -rf /tmp/wolf-blocks-build
             cd /home/${{ secrets.SSH_USER }}/wolfthemes.com
             wp cache flush
-            curl -D - -sSX PURGE http://127.0.0.1/* -H "Host: wolfthemes.com"
