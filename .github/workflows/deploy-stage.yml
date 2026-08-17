@@ -92,11 +92,11 @@ jobs:
           port: ${{ secrets.SSH_PORT }}
           script: |
             set -euo pipefail
-            cd /home/${{ secrets.SSH_USER }}/www/staging20.wolfthemes.com/public_html/wp-content/plugins/wolf-blocks
+            cd /home/${{ secrets.SSH_USER }}/staging20.wolfthemes.com/wp-content/plugins/wolf-blocks
             git fetch origin stage
             git checkout -B stage origin/stage
             rsync -a --delete /tmp/wolf-blocks-build/ build/
             rm -rf /tmp/wolf-blocks-build
-            cd /home/${{ secrets.SSH_USER }}/www/staging20.wolfthemes.com/public_html
+            cd /home/${{ secrets.SSH_USER }}/staging20.wolfthemes.com
             wp cache flush
             curl -D - -sSX PURGE http://127.0.0.1/* -H "Host: staging20.wolfthemes.com"
